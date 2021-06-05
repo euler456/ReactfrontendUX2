@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import "./index.css";
-import Loader from './Loader';
+import Loader from "react-loader-spinner";
 import $, { extend } from 'jquery';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 //"homepage": "http:euler456.github.io/UX2",
 //import Redirect from 'react-router'
 //import { fetchlogin, fetchregister,fetchaccountexists ,fetchisloggedin,fetchlogout } from './api/app/app.js';
