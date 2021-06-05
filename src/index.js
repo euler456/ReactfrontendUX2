@@ -217,14 +217,7 @@ class Home extends React.Component {
     const { redirect } = this.state;
    
      if (redirect) {return <Redirect to='/payment' /> };
-        if (this.state.loading) {return ( <Segment>
-          <Dimmer active>
-            <Loader>Loading</Loader>
-          </Dimmer>
-    
-          <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
-        </Segment>
-    )};
+        if (this.state.loading) {return (<Loader></Loader>)};
           return (
             <body>
             <form>
