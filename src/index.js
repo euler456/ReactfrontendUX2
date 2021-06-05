@@ -157,7 +157,6 @@ class Home extends React.Component {
   componentDidMount() {
     $(document).ready(()=>{
       $("#orderform").on('click', '.btnSelect', function() {
-        this.setState({ loading: false});
         var currentRow = $(this).closest("tr");
         var col1 = currentRow.find(".fd-value").val(); 
         var col2 = currentRow.find(".fd-id").html(); 
@@ -193,6 +192,7 @@ class Home extends React.Component {
         else{
             alert("please select value");
         }
+      
       });
   });
     fetch('https://ux2backend.herokuapp.com/api/api.php?action=displayorderfood',
@@ -217,7 +217,14 @@ class Home extends React.Component {
     const { redirect } = this.state;
    
      if (redirect) {return <Redirect to='/payment' /> };
-        if (this.state.loading) {return <Loader></Loader>};
+        if (this.state.loading) {return ( <Segment>
+          <Dimmer active>
+            <Loader>Loading</Loader>
+          </Dimmer>
+    
+          <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
+        </Segment>
+    )};
           return (
             <body>
             <form>
@@ -255,8 +262,8 @@ class Home extends React.Component {
             <tbody class="showtbody" id="showorderform">
             {order.map(response =>(
                    <tr>
-                   <td class='fd-name'>{response.foodname}</td>
-                   <td class='price'>{response.price}</td>
+                   <td >{response.foodname}</td>
+                   <td >{response.price}</td>
                    <td>{response.quantity}</td>
                    <td >{response.totalprice}</td>
                    <td><input type="submit" name="delete" value="delete"  onClick={() =>this.fetchorderdelete(`${response.orderitem_ID}`)}></input></td>
