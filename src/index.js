@@ -172,6 +172,7 @@ class Home extends React.Component {
         fd.append('price', col4 );
         fd.append('quantity', col1 );
         fd.append('totalprice', col5 );
+        this.setState({ loading: true})
         fetch('https://ux2backend.herokuapp.com/api/api.php?action=orderquantity', 
         {
             method: 'POST',
