@@ -145,7 +145,7 @@ class Home extends React.Component {
         }
         if(headers.status == 201) {
             console.log('sumtotalprice');
-            this.setState({ redirect: true ,
+            this.setState({ redirect: true 
               });
             localStorage.setItem('reload','has been reload');   
             localStorage.setItem('action','checking out');   
