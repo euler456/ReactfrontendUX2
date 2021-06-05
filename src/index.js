@@ -125,8 +125,7 @@ class Home extends React.Component {
        if(headers.status == 201) {
            console.log('delete succussful');
            window.location.reload();
-           this.setState({ 
-            loading: false});
+           this.setState({ loading: false});
            localStorage.setItem('reload','has been reload');   
            localStorage.setItem('action','orderdelete');   
            return;
@@ -210,8 +209,8 @@ class Home extends React.Component {
                 method: 'GET',
                 credentials: 'include'
             }
-            )   .then(response => response.json())
-            .then(data => this.setState({ order: data , loading: false}));
+            ) .then(response => response.json())
+            .then(data => this.setState({ order: data }));
     }
 
   render(){
