@@ -184,7 +184,7 @@ class Home extends React.Component {
             if(headers.status == 201) {
                 console.log('addfood succussful');
                 localStorage.setItem('action','add food');  
-               window.location.reload();
+               //window.location.reload();
                 return;
             }
         })
