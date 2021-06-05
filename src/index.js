@@ -101,11 +101,12 @@ class Home extends React.Component {
     this.state = {
       hits: [],
       redirect: false,
-      loading:true,
+      loading:false,
       order:[]
     };
   }
   fetchorderdelete= (dd)=>{
+    this.setState({  loading: true})
     console.log(dd);
     const fd = new FormData();
     fd.append('orderitem_ID', dd);
@@ -133,6 +134,7 @@ class Home extends React.Component {
    .catch(function(error) {console.log(error)});
      }
   completeorder=()=>{
+    this.setState({ loading: true})
     fetch('https://ux2backend.herokuapp.com/api/api.php?action=sumtotalprice', 
     {
         method: 'GET',
@@ -201,7 +203,7 @@ class Home extends React.Component {
             credentials: 'include'
         }
         )   .then(response => response.json())
-        .then(data => this.setState({ hits: data , loading: false}));
+        .then(data => this.setState({ hits: data }));
     fetch('https://ux2backend.herokuapp.com/api/api.php?action=showorderform',
         {
                 method: 'GET',
@@ -218,7 +220,7 @@ class Home extends React.Component {
     const { loading } = this.state;
    
      if (redirect) {return <Redirect to='/payment' /> };
-      
+        if (loading) {return <Loader />};
           return (
             <body>
             <form>
