@@ -216,7 +216,7 @@ class Home extends React.Component {
     const { redirect } = this.state;
    
      if (redirect) {return <Redirect to='/payment' /> };
-     if (this.state.loading) {return <Loader />};
+     if (this.state.loading) {return <Loader />} else{
           return (
             <body>
             <form>
@@ -265,7 +265,7 @@ class Home extends React.Component {
         <input type="submit" name="submit" value="Complete order" onClick={()=>this.completeorder()}></input>
        </form>
         </body>
-          );
+          )};
   }
 }
 class Login extends React.Component {
