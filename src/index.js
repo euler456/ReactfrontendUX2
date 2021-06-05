@@ -218,7 +218,7 @@ class Home extends React.Component {
     const { loading } = this.state;
    
      if (redirect) {return <Redirect to='/payment' /> };
-        if (loading) {return <Loader />};
+      
           return (
             <body>
             <form>
