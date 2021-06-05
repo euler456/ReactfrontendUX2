@@ -1,0 +1,24 @@
+{
+    "short_name": "Freshly",
+    "name": "Freshly",
+    "icons": [
+        {
+          "src": "../pic/frelogo.png",
+          "type": "image/png",
+          "sizes": "144x144",
+          "purpose": "any maskable"
+        },
+        {
+          "src": "../pic/text847.png",
+          "type": "image/png",
+          "sizes": "512x512",
+          "purpose": "maskable"
+        }
+      ],
+      "theme_color": "#3367D6",
+    "start_url": "/?source=pwa",
+    "background_color": "#3367D6",
+    "display": "standalone",
+    "scope": "/"
+   
+    }

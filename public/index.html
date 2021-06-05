@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
+integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" 
+crossorigin="anonymous">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../pic/frelogo.png">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<meta name="theme-color" content="#317EFB"/>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.6.3/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.6.3/umd/react-dom.production.min.js"></script>
+<script>
+  if('serviceWorker' in navigator){
+    console.log("Will service worker register?");
+    navigator.serviceWorker.register('../service-worker.js').then(function(reg){
+console.log("Yes it did");}).catch(function(err){
+console.log("No it did not This happened: ",err)
+});
+   
+
+  }
+</script>
+</head>
+    <title>React Router Example</title>
+  
+  <body >
+    <div id="root" ></div>
+ 
+  </body>
+</html>
