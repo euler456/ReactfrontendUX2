@@ -101,7 +101,7 @@ class Home extends React.Component {
     this.state = {
       hits: [],
       redirect: false,
-      loading:false,
+      loading:true,
       order:[]
     };
   }
@@ -157,6 +157,7 @@ class Home extends React.Component {
   componentDidMount() {
     $(document).ready(()=>{
       $("#orderform").on('click', '.btnSelect', function() {
+        this.setState({ loading: false});
         var currentRow = $(this).closest("tr");
         var col1 = currentRow.find(".fd-value").val(); 
         var col2 = currentRow.find(".fd-id").html(); 
@@ -200,7 +201,7 @@ class Home extends React.Component {
             credentials: 'include'
         }
         )   .then(response => response.json())
-        .then(data => this.setState({ hits: data , loading: true}));
+        .then(data => this.setState({ hits: data , loading: false}));
     fetch('https://ux2backend.herokuapp.com/api/api.php?action=showorderform',
         {
                 method: 'GET',
@@ -214,8 +215,9 @@ class Home extends React.Component {
     const { hits } = this.state; 
     const { order } = this.state; 
     const { redirect } = this.state;
+   
      if (redirect) {return <Redirect to='/payment' /> };
-     if (!this.state.loading) {return <Loader />};
+        if (this.state.loading) {return };
           return (
             <body>
             <form>
