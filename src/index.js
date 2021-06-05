@@ -101,7 +101,7 @@ class Home extends React.Component {
     this.state = {
       hits: [],
       redirect: false,
-      loading:false,
+      loading:true,
       order:[]
     };
   }
@@ -200,7 +200,7 @@ class Home extends React.Component {
             credentials: 'include'
         }
         )   .then(response => response.json())
-        .then(data => this.setState({ hits: data , loading: true}));
+        .then(data => this.setState({ hits: data , loading: false}));
     fetch('https://ux2backend.herokuapp.com/api/api.php?action=showorderform',
         {
                 method: 'GET',
@@ -216,7 +216,6 @@ class Home extends React.Component {
     const { redirect } = this.state;
    
      if (redirect) {return <Redirect to='/payment' /> };
-     if (this.state.loading) {
           return (
             <body>
             <form>
@@ -265,8 +264,7 @@ class Home extends React.Component {
         <input type="submit" name="submit" value="Complete order" onClick={()=>this.completeorder()}></input>
        </form>
         </body>
-          )}
-           else{return <Loader />};
+          );
   }
 }
 class Login extends React.Component {
