@@ -214,8 +214,9 @@ class Home extends React.Component {
     const { hits } = this.state; 
     const { order } = this.state; 
     const { redirect } = this.state;
-    if (this.state.loading) return <Loader />
-     if (redirect) {return <Redirect to='/payment' /> }
+   
+     if (redirect) {return <Redirect to='/payment' /> };
+     if (this.state.loading) {return <Loader />};
           return (
             <body>
             <form>
