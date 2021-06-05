@@ -125,7 +125,6 @@ class Home extends React.Component {
        if(headers.status == 201) {
            console.log('delete succussful');
            window.location.reload();
-           this.setState({ loading: false});
            localStorage.setItem('reload','has been reload');   
            localStorage.setItem('action','orderdelete');   
            return;
@@ -147,7 +146,7 @@ class Home extends React.Component {
         if(headers.status == 201) {
             console.log('sumtotalprice');
             this.setState({ redirect: true ,
-              loading: false});
+              });
             localStorage.setItem('reload','has been reload');   
             localStorage.setItem('action','checking out');   
             return;
@@ -185,8 +184,6 @@ class Home extends React.Component {
             if(headers.status == 201) {
                 console.log('addfood succussful');
                 localStorage.setItem('action','add food');  
-                this.setState({ 
-                  loading: false}); 
                window.location.reload();
                 return;
             }
@@ -217,10 +214,8 @@ class Home extends React.Component {
     const { hits } = this.state; 
     const { order } = this.state; 
     const { redirect } = this.state;
-     if (redirect) {
-       return <Redirect to='/payment' />
-     }
-     if (this.state.loading) return <Loader />;
+    if (this.state.loading) return <Loader />
+     if (redirect) {return <Redirect to='/payment' /> }
           return (
             <body>
             <form>
