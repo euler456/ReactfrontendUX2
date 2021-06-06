@@ -278,11 +278,13 @@ class Login extends React.Component {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
-      redirect: false
+      redirect: false,
+      loading:false,
     };
     
   }
   handleSubmit(event) {
+    this.setState({  loading: true})
     event.preventDefault();
     const data = new FormData(event.target);
     fetch('https://ux2backend.herokuapp.com/api/api.php?action=login', {
@@ -342,10 +344,12 @@ class Login extends React.Component {
   }
   render() {
     const { redirect } = this.state;
+    const { loading } = this.state;
     // const { redirectToReferrer } = this.state;
      if (redirect) {
        return <Redirect to='/Home'/>
      }
+     if (loading) {return <Loader />};
     return (
       <div>
         <h2>Login</h2>
