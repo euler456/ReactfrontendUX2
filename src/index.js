@@ -312,7 +312,6 @@ class Login extends React.Component {
       if(headers.status == 200) {
         console.log('login successful');
         localStorage.setItem('action','login');   
-        this.setState({ redirect: true });
         fetch('https://ux2backend.herokuapp.com/api/api.php?action=createorder', 
         {
             method: 'POST',
@@ -332,7 +331,7 @@ class Login extends React.Component {
            
         })
         .catch(function(error) {console.log(error)});
-
+        this.setState({ redirect: true });
         // only need csrf
     }
 
