@@ -614,7 +614,7 @@ class payment extends React.Component {
         <label for="ccnum">Credit card number</label>
         <input type="text" id="ccnum" name="ccnum" maxlength="30"></input>
         <label for="expmonth">Exp Month</label>
-        <input type="text" id="expmonth" name="expmonth" pattern="[A-Za-z]{10}" ></input>
+        <input type="text" id="expmonth" name="expmonth" pattern="[A-Za-z]" ></input>
             <label for="expyear">Exp Year</label>
             <input type="number" id="expyear" name="expyear"  maxlength="4"></input>
             <label for="cvv">CVV</label>
