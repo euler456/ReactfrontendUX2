@@ -97,7 +97,7 @@ class Home extends React.Component {
     super(props);
     this.completeorder = this.completeorder.bind(this);
     this.fetchorderdelete = this.fetchorderdelete.bind(this);
-  
+    this.display = this.display.bind(this);
     this.state = {
       hits: [],
       redirect: false,
@@ -125,7 +125,7 @@ class Home extends React.Component {
     
        if(headers.status == 201) {
            console.log('delete succussful');
-          display();
+          this.display();
            localStorage.setItem('reload','has been reload');   
            localStorage.setItem('action','orderdelete');   
            return;
@@ -196,7 +196,7 @@ class Home extends React.Component {
             if(headers.status == 201) {
                 console.log('addfood succussful');
                 localStorage.setItem('action','add food');  
-              display();
+              this.display();
                 return;
             }
         })
