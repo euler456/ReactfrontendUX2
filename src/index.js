@@ -167,6 +167,7 @@ class Home extends React.Component {
      }
   
   componentDidMount() {
+    this.display();
     $(document).ready(()=>{
       $("#orderform").on('click', '.btnSelect', function() {
         var currentRow = $(this).closest("tr");
