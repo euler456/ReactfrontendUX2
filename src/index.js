@@ -126,6 +126,7 @@ class Home extends React.Component {
        if(headers.status == 201) {
            console.log('delete succussful');
           this.display();
+          this.setState({  loading: false})
            localStorage.setItem('reload','has been reload');   
            localStorage.setItem('action','orderdelete');   
            return;
@@ -207,20 +208,14 @@ class Home extends React.Component {
       
       });
   });
-    fetch('https://ux2backend.herokuapp.com/api/api.php?action=displayorderfood',
-    {
-            method: 'POST',
-            credentials: 'include'
-        }
-        )   .then(response => response.json())
-        .then(data => this.setState({ hits: data }));
-    fetch('https://ux2backend.herokuapp.com/api/api.php?action=showorderform',
-        {
-                method: 'GET',
-                credentials: 'include'
-            }
-            ) .then(response => response.json())
-            .then(data => this.setState({ order: data }));
+  fetch('https://ux2backend.herokuapp.com/api/api.php?action=displayorderfood',
+  {
+          method: 'POST',
+          credentials: 'include'
+      }
+      )   .then(response => response.json())
+      .then(data => this.setState({ hits: data }));
+  
     }
 
   render(){
