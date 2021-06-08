@@ -207,7 +207,7 @@ class Home extends React.Component {
             alert("please select value");
         }
       
-      }).bind(this);
+      });
   });
   fetch('https://ux2backend.herokuapp.com/api/api.php?action=displayorderfood',
   {
