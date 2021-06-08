@@ -105,6 +105,15 @@ class Home extends React.Component {
       order:[]
     };
   }
+  display=()=>{
+    fetch('https://ux2backend.herokuapp.com/api/api.php?action=showorderform',
+        {
+                method: 'GET',
+                credentials: 'include'
+            }
+            ) .then(response => response.json())
+            .then(data => this.setState({ order: data }));
+   }
   fetchorderdelete= (dd)=>{
     this.setState({  loading: true})
     console.log(dd);
@@ -157,15 +166,7 @@ class Home extends React.Component {
     })
     .catch(function(error) {console.log(error)});
      }
-     display=()=>{
-      fetch('https://ux2backend.herokuapp.com/api/api.php?action=showorderform',
-          {
-                  method: 'GET',
-                  credentials: 'include'
-              }
-              ) .then(response => response.json())
-              .then(data => this.setState({ order: data }));
-     }
+  
   componentDidMount() {
     $(document).ready(()=>{
       $("#orderform").on('click', '.btnSelect', function() {
