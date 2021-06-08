@@ -97,7 +97,7 @@ class Home extends React.Component {
     super(props);
     this.completeorder = this.completeorder.bind(this);
     this.fetchorderdelete = this.fetchorderdelete.bind(this);
-    this.display = this.display.bind(this);
+    
     this.state = {
       hits: [],
       redirect: false,
@@ -132,9 +132,9 @@ class Home extends React.Component {
        }
     
        if(headers.status == 201) {
+        this.setState({ loading: false});
+        this.display();
            console.log('delete succussful');
-          this.display();
-          this.setState({  loading: false});
            localStorage.setItem('reload','has been reload');   
            localStorage.setItem('action','orderdelete');   
            return;
@@ -143,7 +143,7 @@ class Home extends React.Component {
    .catch(function(error) {console.log(error)});
      }
   completeorder=()=>{
-    this.setState({ loading: true})
+    this.setState({ loading: true});
     fetch('https://ux2backend.herokuapp.com/api/api.php?action=sumtotalprice', 
     {
         method: 'GET',
