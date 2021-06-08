@@ -168,7 +168,7 @@ class Home extends React.Component {
   
   componentDidMount() {
     $(document).ready(()=>{
-      $("#orderform").on('click', '.btnSelect', (loading) => {
+      $("#orderform").on('click', '.btnSelect', () => {
         var currentRow = $(this).closest("tr");
         var col1 = currentRow.find(".fd-value").val(); 
         var col2 = currentRow.find(".fd-id").html(); 
@@ -189,7 +189,7 @@ class Home extends React.Component {
             body: fd,
             credentials: 'include'
         })
-       .then(function(headers) {
+       .then((headers)=> {
             if(headers.status == 400) {
                 console.log('fail to add');
                 return;
@@ -202,7 +202,7 @@ class Home extends React.Component {
                 return;
             }
         })
-        .catch(function(error) {console.log(error)});}
+        .catch((error)=> {console.log(error)});}
         else{
             alert("please select value");
         }
