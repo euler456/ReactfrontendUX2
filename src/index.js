@@ -125,7 +125,7 @@ class Home extends React.Component {
     
        if(headers.status == 201) {
            console.log('delete succussful');
-           window.location.reload();
+          display();
            localStorage.setItem('reload','has been reload');   
            localStorage.setItem('action','orderdelete');   
            return;
@@ -155,6 +155,15 @@ class Home extends React.Component {
         }
     })
     .catch(function(error) {console.log(error)});
+     }
+     display=()=>{
+      fetch('https://ux2backend.herokuapp.com/api/api.php?action=showorderform',
+          {
+                  method: 'GET',
+                  credentials: 'include'
+              }
+              ) .then(response => response.json())
+              .then(data => this.setState({ order: data }));
      }
   componentDidMount() {
     $(document).ready(()=>{
@@ -187,7 +196,7 @@ class Home extends React.Component {
             if(headers.status == 201) {
                 console.log('addfood succussful');
                 localStorage.setItem('action','add food');  
-               //window.location.reload();
+              display();
                 return;
             }
         })
