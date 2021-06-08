@@ -115,7 +115,6 @@ class Home extends React.Component {
             .then(data => this.setState({ order: data }));
    }
   fetchorderdelete= (dd)=>{
-    this.setState({  loading: true})
     console.log(dd);
     const fd = new FormData();
     fd.append('orderitem_ID', dd);
