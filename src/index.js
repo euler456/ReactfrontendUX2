@@ -327,6 +327,7 @@ class Login extends React.Component {
         .then(function(headers) {
             if(headers.status == 403) {
                 console.log('can not order you are not loggedin');
+                alert('please login again');
                 return;
             }
          
