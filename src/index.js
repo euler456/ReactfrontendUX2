@@ -329,6 +329,12 @@ class Login extends React.Component {
                 alert('please login again');
                 return;
             }
+            if(headers.status == 401) {
+              this.setState({  loading: true})
+              console.log('can not order you are not loggedin');
+              alert('please login again');
+              return;
+          }
          
             if(headers.status == 201) {
                 console.log('going to order');
