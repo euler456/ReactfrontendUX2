@@ -166,8 +166,7 @@ class Home extends React.Component {
     .catch(function(error) {console.log(error)});
      }
   
-  componentDidMount() {
-    $(document).ready(()=>{
+     orderfood=()=>{
       $("#orderform").on('click', '.btnSelect', () =>{
         var currentRow = $(this).closest("tr");
         var col1 = currentRow.find(".fd-value").val(); 
@@ -206,7 +205,9 @@ class Home extends React.Component {
         }
       
       });
-  });
+  
+     }
+  componentDidMount() {
   fetch('https://ux2backend.herokuapp.com/api/api.php?action=displayorderfood',
   {
           method: 'POST',
@@ -214,9 +215,7 @@ class Home extends React.Component {
       }
       )   .then(response => response.json())
       .then(data => this.setState({ hits: data }));
-  
-    }
-
+  }
   render(){
     const { hits } = this.state; 
     const { order } = this.state; 
@@ -244,7 +243,7 @@ class Home extends React.Component {
             <td class='price'>{hit.price}</td>
             <td><input type="number" class="fd-value" name="quantity" min="0" max="50"></input></td>
             <td>{hit.options}</td>
-            <td><input type="submit" name="submit" class="btnSelect"></input></td>
+            <td><input type="submit" name="submit" class="btnSelect" onClick={()=>this.orderfood()}></input></td>
              </tr>
                   ) )}
             </tbody>
