@@ -168,7 +168,7 @@ class Home extends React.Component {
   
   componentDidMount() {
     $(document).ready(()=>{
-      $("#orderform").on('click', '.btnSelect', () => {
+      $("#orderform").on('click', '.btnSelect', function() {
         var currentRow = $(this).closest("tr");
         var col1 = currentRow.find(".fd-value").val(); 
         var col2 = currentRow.find(".fd-id").html(); 
@@ -197,7 +197,6 @@ class Home extends React.Component {
             if(headers.status == 201) {
                 console.log('addfood succussful');
                 localStorage.setItem('action','add food');  
-                this.setState({ loading: false});
               this.display();
                 return;
             }
