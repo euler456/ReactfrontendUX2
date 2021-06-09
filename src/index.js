@@ -207,7 +207,7 @@ class Home extends React.Component {
       });
   
      }
-  componentDidMount() {
+     componentWillUnmount() {
   fetch('https://ux2backend.herokuapp.com/api/api.php?action=displayorderfood',
   {
           method: 'POST',
