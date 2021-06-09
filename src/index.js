@@ -207,7 +207,7 @@ class Home extends React.Component {
       });
   
      }
-     componentWillUnmount() {
+  fetchfood = () =>{
   fetch('https://ux2backend.herokuapp.com/api/api.php?action=displayorderfood',
   {
           method: 'POST',
@@ -225,7 +225,7 @@ class Home extends React.Component {
      if (redirect) {return <Redirect to='/payment' /> };
         if (loading) {return <Loader />};
           return (
-            <body>
+            <body onLoad= {() => this.fetchfood()}>
             <form>
             <table>
             <thead>
