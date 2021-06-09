@@ -167,6 +167,7 @@ class Home extends React.Component {
      }
   
      orderfood=()=>{
+       alert("order food");
       $("#orderform").on('click', '.btnSelect', () =>{
         var currentRow = $(this).closest("tr");
         var col1 = currentRow.find(".fd-value").val(); 
@@ -193,6 +194,7 @@ class Home extends React.Component {
                 return;
             }
             if(headers.status == 201) {
+              alert("add successful");
                 console.log('addfood succussful');
                 localStorage.setItem('action','add food');  
               this.display();
