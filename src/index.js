@@ -97,7 +97,6 @@ class Home extends React.Component {
     super(props);
     this.completeorder = this.completeorder.bind(this);
     this.fetchorderdelete = this.fetchorderdelete.bind(this);
-    this.fetchfood = this.fetchfood.bind(this);
     this.display = this.display.bind(this);
     this.state = {
       hits: [],
@@ -208,7 +207,7 @@ class Home extends React.Component {
       });
   
      }
-  fetchfood = () =>{
+  componentDidMount() {
   fetch('https://ux2backend.herokuapp.com/api/api.php?action=displayorderfood',
   {
           method: 'POST',
@@ -226,7 +225,7 @@ class Home extends React.Component {
      if (redirect) {return <Redirect to='/payment' /> };
         if (loading) {return <Loader />};
           return (
-            <body onLoad= {() => this.fetchfood()}>
+            <body >
             <form>
             <table>
             <thead>
