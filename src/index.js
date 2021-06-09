@@ -131,7 +131,7 @@ class Home extends React.Component {
            return;
        }
     
-       if(headers.status == 201) {
+       if(headers.status == 200) {
         this.setState({ loading: false});
         this.display();
            console.log('delete succussful');
