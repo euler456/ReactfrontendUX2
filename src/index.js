@@ -168,7 +168,7 @@ class Home extends React.Component {
   
   componentDidMount() {
     $(document).ready(()=>{
-      $("#orderform").on('click', '.btnSelect', function() {
+      $("#orderform").on('click', '.btnSelect', () =>{
         var currentRow = $(this).closest("tr");
         var col1 = currentRow.find(".fd-value").val(); 
         var col2 = currentRow.find(".fd-id").html(); 
@@ -182,7 +182,6 @@ class Home extends React.Component {
         fd.append('price', col4 );
         fd.append('quantity', col1 );
         fd.append('totalprice', col5 );
-        
         fetch('https://ux2backend.herokuapp.com/api/api.php?action=orderquantity', 
         {
             method: 'POST',
