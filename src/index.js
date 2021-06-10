@@ -168,6 +168,7 @@ class Home extends React.Component {
   
      orderfood=()=>{
        alert("order food");
+       $(document).ready(()=>{
       $("#orderform").on('click', '.btnSelect', () =>{
         var currentRow = $(this).closest("tr");
         var col1 = currentRow.find(".fd-value").val(); 
@@ -205,7 +206,8 @@ class Home extends React.Component {
         else{
             alert("please select value");
         }
-      
+
+        });
       });
   
      }
