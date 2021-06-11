@@ -112,8 +112,7 @@ class Home extends React.Component {
     const { redirect } = this.state;
     const { loading } = this.state;
    
-     if (redirect) {return <Redirect to='/payment' /> };
-        if (loading) {return <Loader />};
+    
           return (
         
        <Displayfood />

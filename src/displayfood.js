@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import $, { extend } from 'jquery';
+import {
+  Redirect 
+} from "react-router-dom";
 function Displayfood() {
   const [hits, setHits] = useState([]);
   const [order, setorder] = useState([]);
-
-
+  const [redirect, setredirect] = useState(false);
+  const [loading, setloading] = useState(false);
   function display(){
     fetch('https://ux2backend.herokuapp.com/api/api.php?action=showorderform',
         {
@@ -33,8 +38,8 @@ function Displayfood() {
        }
     
        if(headers.status == 200) {
-        this.setState({ loading: false});
-        this.display();
+        this.setloading({ loading: false});
+        display();
            console.log('delete succussful');
            localStorage.setItem('reload','has been reload');   
            localStorage.setItem('action','orderdelete');   
@@ -44,7 +49,7 @@ function Displayfood() {
    .catch(function(error) {console.log(error)});
      }
    function completeorder(){
-    this.setState({ loading: true});
+    this.setloading({ loading: true});
     fetch('https://ux2backend.herokuapp.com/api/api.php?action=sumtotalprice', 
     {
         method: 'GET',
@@ -57,7 +62,7 @@ function Displayfood() {
         }
         if(headers.status == 201) {
             console.log('sumtotalprice');
-            this.setState({ redirect: true 
+            this.setredirect({ redirect: true 
               });
             localStorage.setItem('reload','has been reload');   
             localStorage.setItem('action','checking out');   
@@ -121,6 +126,8 @@ function Displayfood() {
         setHits(data);
       });
     }, []);
+    if (redirect) {return <Redirect to='/payment' /> };
+    if (loading) {return <Loader />};
   return (
     <body>
     <form>
