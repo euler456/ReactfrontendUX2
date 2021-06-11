@@ -1,16 +1,19 @@
-import React  from 'react';
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 
 function Displayfood() {
-  // 宣告一個新的 state 變數，我們叫他「count」
-  const hits = response.data.hits;
+  const [hits, setHits] = useState([]);
+  useEffect(() => {
   fetch('https://ux2backend.herokuapp.com/api/api.php?action=displayorderfood',
   {
           method: 'POST',
           credentials: 'include'
       }
       )   .then(response => response.json())
-      .then(data => this.setState({ hits: data }));
-
+      .then(data => {
+        setHits(data);
+      });
+    }, []);
   return (
     <form>
     <table>
