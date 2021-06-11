@@ -106,69 +106,6 @@ class Home extends React.Component {
       order:[]
     };
   }
-  display=()=>{
-    fetch('https://ux2backend.herokuapp.com/api/api.php?action=showorderform',
-        {
-                method: 'GET',
-                credentials: 'include'
-            }
-            ) .then(response => response.json())
-            .then(data => this.setState({ order: data }));
-   }
-  fetchorderdelete= (dd)=>{
-    console.log(dd);
-    const fd = new FormData();
-    fd.append('orderitem_ID', dd);
-    console.log(fd);
-   fetch('https://ux2backend.herokuapp.com/api/api.php?action=orderdelete', 
-   {
-       method: 'POST',
-       body: fd,
-       credentials: 'include'
-   })
-   .then(function(headers) {
-       if(headers.status == 400) {
-           console.log('can not delete');
-           return;
-       }
-    
-       if(headers.status == 200) {
-        this.setState({ loading: false});
-        this.display();
-           console.log('delete succussful');
-           localStorage.setItem('reload','has been reload');   
-           localStorage.setItem('action','orderdelete');   
-           return;
-       }
-   })
-   .catch(function(error) {console.log(error)});
-     }
-  completeorder=()=>{
-    this.setState({ loading: true});
-    fetch('https://ux2backend.herokuapp.com/api/api.php?action=sumtotalprice', 
-    {
-        method: 'GET',
-        credentials: 'include'
-    })
-   .then((headers) =>{
-        if(headers.status == 403) {
-            console.log('fail to sum ');
-            return;
-        }
-        if(headers.status == 201) {
-            console.log('sumtotalprice');
-            this.setState({ redirect: true 
-              });
-            localStorage.setItem('reload','has been reload');   
-            localStorage.setItem('action','checking out');   
-            return;
-        }
-    })
-    .catch(function(error) {console.log(error)});
-     }
-  
-    
-  
   render(){
     const { hits } = this.state; 
     const { order } = this.state; 
@@ -178,31 +115,9 @@ class Home extends React.Component {
      if (redirect) {return <Redirect to='/payment' /> };
         if (loading) {return <Loader />};
           return (
-            <body >
+        
        <Displayfood />
-        <form >
-           <h1>Your order</h1>
-        <table>
-            <thead>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Value</th>
-                <th>totalprice</th>
-            </thead>
-            <tbody class="showtbody" id="showorderform">
-            {order.map(response =>(
-                   <tr>
-                   <td >{response.foodname}</td>
-                   <td >{response.price}</td>
-                   <td>{response.quantity}</td>
-                   <td >{response.totalprice}</td>
-                   <td><input type="submit" name="delete" value="delete"  onClick={() =>this.fetchorderdelete(`${response.orderitem_ID}`)}></input></td>
-                   </tr>    ) )}
-            </tbody>
-        </table>
-        <input type="submit" name="submit" value="Complete order" onClick={()=>this.completeorder()}></input>
-       </form>
-        </body>
+      
           );
   }
 }

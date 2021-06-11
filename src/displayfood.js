@@ -3,6 +3,71 @@ import ReactDOM from "react-dom";
 import $, { extend } from 'jquery';
 function Displayfood() {
   const [hits, setHits] = useState([]);
+  const [order, setorder] = useState([]);
+
+
+  function display(){
+    fetch('https://ux2backend.herokuapp.com/api/api.php?action=showorderform',
+        {
+                method: 'GET',
+                credentials: 'include'
+            }
+            ) .then(response => response.json())
+            .then(data => this.setorder({ order: data }));
+   }
+   function fetchorderdelete(dd){
+    console.log(dd);
+    const fd = new FormData();
+    fd.append('orderitem_ID', dd);
+    console.log(fd);
+   fetch('https://ux2backend.herokuapp.com/api/api.php?action=orderdelete', 
+   {
+       method: 'POST',
+       body: fd,
+       credentials: 'include'
+   })
+   .then(function(headers) {
+       if(headers.status == 400) {
+           console.log('can not delete');
+           return;
+       }
+    
+       if(headers.status == 200) {
+        this.setState({ loading: false});
+        this.display();
+           console.log('delete succussful');
+           localStorage.setItem('reload','has been reload');   
+           localStorage.setItem('action','orderdelete');   
+           return;
+       }
+   })
+   .catch(function(error) {console.log(error)});
+     }
+   function completeorder(){
+    this.setState({ loading: true});
+    fetch('https://ux2backend.herokuapp.com/api/api.php?action=sumtotalprice', 
+    {
+        method: 'GET',
+        credentials: 'include'
+    })
+   .then((headers) =>{
+        if(headers.status == 403) {
+            console.log('fail to sum ');
+            return;
+        }
+        if(headers.status == 201) {
+            console.log('sumtotalprice');
+            this.setState({ redirect: true 
+              });
+            localStorage.setItem('reload','has been reload');   
+            localStorage.setItem('action','checking out');   
+            return;
+        }
+    })
+    .catch(function(error) {console.log(error)});
+     }
+  
+
   function orderfood(){
     alert("order food");
    $("#orderform").on('click', '.btnSelect', function() {
@@ -34,7 +99,7 @@ function Displayfood() {
            alert("add successful");
              console.log('addfood succussful');
              localStorage.setItem('action','add food');  
-           this.display();
+          display();
              return;
          }
      })
@@ -57,6 +122,7 @@ function Displayfood() {
       });
     }, []);
   return (
+    <body>
     <form>
     <table>
     <thead>
@@ -74,12 +140,35 @@ function Displayfood() {
     <td class='price'>{hit.price}</td>
     <td><input type="number" class="fd-value" name="quantity" min="0" max="50"></input></td>
     <td>{hit.options}</td>
-    <td><input type="submit" name="submit" class="btnSelect" onClick={()=>this.orderfood()}></input></td>
+    <td><input type="submit" name="submit" class="btnSelect" onClick={orderfood()}></input></td>
      </tr>
           ) )}
     </tbody>
 </table>
 </form>
+  <form >
+  <h1>Your order</h1>
+<table>
+   <thead>
+       <th>Name</th>
+       <th>Price</th>
+       <th>Value</th>
+       <th>totalprice</th>
+   </thead>
+   <tbody class="showtbody" id="showorderform">
+   {order.map(response =>(
+          <tr>
+          <td >{response.foodname}</td>
+          <td >{response.price}</td>
+          <td>{response.quantity}</td>
+          <td >{response.totalprice}</td>
+          <td><input type="submit" name="delete" value="delete"  onClick={fetchorderdelete(`${response.orderitem_ID}`)}></input></td>
+          </tr>    ) )}
+   </tbody>
+</table>
+<input type="submit" name="submit" value="Complete order" onClick={completeorder()}></input>
+</form>
+</body>
   );
 }
 export default Displayfood;
