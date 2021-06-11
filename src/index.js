@@ -94,7 +94,7 @@ class Main extends React.Component {
 
 class Home extends React.Component {
   
-  constructor(props) {
+/*  constructor(props) {
     super(props);
     this.completeorder = this.completeorder.bind(this);
     this.fetchorderdelete = this.fetchorderdelete.bind(this);
@@ -105,12 +105,12 @@ class Home extends React.Component {
       loading:false,
       order:[]
     };
-  }
+  }*/
   render(){
-    const { hits } = this.state; 
-    const { order } = this.state; 
-    const { redirect } = this.state;
-    const { loading } = this.state;
+   // const { hits } = this.state; 
+   // const { order } = this.state; 
+   // const { redirect } = this.state;
+  //  const { loading } = this.state;
    
     
           return (
