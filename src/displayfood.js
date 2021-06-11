@@ -49,7 +49,7 @@ function Displayfood() {
    .catch(function(error) {console.log(error)});
      }
    function completeorder(){
-    this.setloading({ loading: true});
+   setloading({ loading: true});
     fetch('https://ux2backend.herokuapp.com/api/api.php?action=sumtotalprice', 
     {
         method: 'GET',
