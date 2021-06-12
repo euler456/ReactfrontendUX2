@@ -76,7 +76,6 @@ function Displayfood() {
 
  
   useEffect(() => {
-    event.preventDefault();
     $("#orderform").on('click', '.btnSelect', function() {
       var currentRow = $(this).closest("tr");
       var col1 = currentRow.find(".fd-value").val(); 
@@ -91,6 +90,7 @@ function Displayfood() {
       fd.append('price', col4 );
       fd.append('quantity', col1 );
       fd.append('totalprice', col5 );
+      
       fetch('https://ux2backend.herokuapp.com/api/api.php?action=orderquantity', 
       {
           method: 'POST',
