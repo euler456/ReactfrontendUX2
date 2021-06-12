@@ -23,7 +23,7 @@ function Displayfood() {
             });
    }
    function fetchorderdelete(dd){
-     dd.p
+   
     console.log(dd);
     const fd = new FormData();
     fd.append('orderitem_ID', dd);
