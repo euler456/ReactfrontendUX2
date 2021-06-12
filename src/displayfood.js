@@ -41,11 +41,11 @@ function Displayfood() {
        }
     
        if(headers.status == 201) {
-        display();
+            display();
            alert('delete succussful');
            localStorage.setItem('reload','has been reload');   
            localStorage.setItem('action','orderdelete');   
-          
+           return;
        }
    })
    .catch(function(error) {console.log(error)});
@@ -90,7 +90,6 @@ function Displayfood() {
       fd.append('price', col4 );
       fd.append('quantity', col1 );
       fd.append('totalprice', col5 );
-      
       fetch('https://ux2backend.herokuapp.com/api/api.php?action=orderquantity', 
       {
           method: 'POST',
