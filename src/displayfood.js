@@ -117,6 +117,7 @@ function Displayfood() {
    });
   };
   useEffect(() => {
+    display();
   fetch('https://ux2backend.herokuapp.com/api/api.php?action=displayorderfood',
   {
           method: 'POST',
