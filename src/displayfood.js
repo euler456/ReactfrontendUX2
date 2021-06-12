@@ -38,7 +38,7 @@ function Displayfood() {
        }
     
        if(headers.status == 200) {
-        this.setloading({ loading: false});
+        setloading({ loading: false});
         display();
            console.log('delete succussful');
            localStorage.setItem('reload','has been reload');   
@@ -62,7 +62,7 @@ function Displayfood() {
         }
         if(headers.status == 201) {
             console.log('sumtotalprice');
-            this.setredirect({ redirect: true 
+           setredirect({ redirect: true 
               });
             localStorage.setItem('reload','has been reload');   
             localStorage.setItem('action','checking out');   
