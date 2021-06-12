@@ -62,8 +62,7 @@ function Displayfood() {
         }
         if(headers.status == 201) {
             console.log('sumtotalprice');
-        setredirect({ redirect: true 
-              });
+      //  setredirect({ redirect: true });
             localStorage.setItem('reload','has been reload');   
             localStorage.setItem('action','checking out');   
             return;
