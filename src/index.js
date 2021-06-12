@@ -183,7 +183,7 @@ class Login extends React.Component {
               
                 console.log('going to order');
                 alert('start order');
-                this.setState({ redirect: true });
+                this.setState({  redirect: true})
                 return;
             }
         })
