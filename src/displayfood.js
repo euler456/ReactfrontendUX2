@@ -171,11 +171,11 @@ function Displayfood() {
           <td >{response.price}</td>
           <td>{response.quantity}</td>
           <td >{response.totalprice}</td>
-          <td><input  name="delete" value="delete"  onClick={() =>fetchorderdelete(`${response.orderitem_ID}`)}></input></td>
+          <td><input type="submit" name="delete" value="delete"  onClick={() =>fetchorderdelete(`${response.orderitem_ID}`)}></input></td>
           </tr>    ) )}
    </tbody>
 </table>
-<input  name="submit" value="Complete order" onClick={() => completeorder()}></input>
+<input type="submit"  name="submit" value="Complete order" onClick={() => completeorder()}></input>
 </form>
 </body>
   );
