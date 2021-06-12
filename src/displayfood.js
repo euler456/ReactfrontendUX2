@@ -18,7 +18,9 @@ function Displayfood() {
                 credentials: 'include'
             }
             ) .then(response => response.json())
-            .then(data => this.setorder({ order: data }));
+            .then(data => {
+              setorder(data);
+            });
    }
    function fetchorderdelete(dd){
     console.log(dd);
