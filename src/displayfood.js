@@ -146,7 +146,7 @@ function Displayfood() {
     <td class='price'>{hit.price}</td>
     <td><input type="number" class="fd-value" name="quantity" min="0" max="50"></input></td>
     <td>{hit.options}</td>
-    <td><input type="submit" name="submit" class="btnSelect" onClick={orderfood()}></input></td>
+    <td><input type="submit" name="submit" class="btnSelect" onClick={() =>orderfood()}></input></td>
      </tr>
           ) )}
     </tbody>
@@ -168,11 +168,11 @@ function Displayfood() {
           <td >{response.price}</td>
           <td>{response.quantity}</td>
           <td >{response.totalprice}</td>
-          <td><button  name="delete" value="delete"  onClick={fetchorderdelete(`${response.orderitem_ID}`)}></button></td>
+          <td><button  name="delete" value="delete"  onClick={() =>fetchorderdelete(`${response.orderitem_ID}`)}></button></td>
           </tr>    ) )}
    </tbody>
 </table>
-<button  name="submit" value="Complete order" onClick={completeorder()}></button>
+<button  name="submit" value="Complete order" onClick={() => completeorder()}></button>
 </form>
 </body>
   );
