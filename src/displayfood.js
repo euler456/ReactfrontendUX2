@@ -76,6 +76,7 @@ function Displayfood() {
 
  
   useEffect(() => {
+    event.preventDefault();
     $("#orderform").on('click', '.btnSelect', function() {
       var currentRow = $(this).closest("tr");
       var col1 = currentRow.find(".fd-value").val(); 
