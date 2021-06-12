@@ -62,7 +62,7 @@ function Displayfood() {
         }
         if(headers.status == 201) {
             console.log('sumtotalprice');
-      //  setredirect({ redirect: true });
+        setredirect({ redirect: true });
             localStorage.setItem('reload','has been reload');   
             localStorage.setItem('action','checking out');   
             return;
@@ -168,11 +168,11 @@ function Displayfood() {
           <td >{response.price}</td>
           <td>{response.quantity}</td>
           <td >{response.totalprice}</td>
-          <td><input type="submit" name="delete" value="delete"  onClick={fetchorderdelete(`${response.orderitem_ID}`)}></input></td>
+          <td><button  name="delete" value="delete"  onClick={fetchorderdelete(`${response.orderitem_ID}`)}></button></td>
           </tr>    ) )}
    </tbody>
 </table>
-<input type="submit" name="submit" value="Complete order" onClick={completeorder()}></input>
+<button  name="submit" value="Complete order" onClick={completeorder()}></button>
 </form>
 </body>
   );
