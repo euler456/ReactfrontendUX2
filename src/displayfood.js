@@ -23,6 +23,7 @@ function Displayfood() {
             });
    }
    function fetchorderdelete(dd){
+     dd.p
     console.log(dd);
     const fd = new FormData();
     fd.append('orderitem_ID', dd);
@@ -106,7 +107,7 @@ function Displayfood() {
               console.log('addfood succussful');
               localStorage.setItem('action','add food');  
            display();
-              return;
+        
           }
       })
       .catch((error)=> {console.log(error)});}
