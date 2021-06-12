@@ -40,12 +40,11 @@ function Displayfood() {
        }
     
        if(headers.status == 201) {
-    
         display();
-           console.log('delete succussful');
+           alert('delete succussful');
            localStorage.setItem('reload','has been reload');   
            localStorage.setItem('action','orderdelete');   
-           return;
+          
        }
    })
    .catch(function(error) {console.log(error)});
