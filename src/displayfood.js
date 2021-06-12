@@ -74,10 +74,7 @@ function Displayfood() {
      }
   
 
-  function orderfood(){
-    alert("order food");
-   
-  };
+ 
   useEffect(() => {
     $("#orderform").on('click', '.btnSelect', function() {
       var currentRow = $(this).closest("tr");
