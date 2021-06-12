@@ -148,7 +148,6 @@ class Login extends React.Component {
           localStorage.removeItem('email');
           localStorage.removeItem('postcode');
           localStorage.removeItem('CustomerID');
-
           alert('Can not login')
           return;
       }
@@ -171,7 +170,7 @@ class Login extends React.Component {
                 return;
             }
             if(headers.status == 401) {
-              this.setState({  loading: true})
+
               console.log('can not order you are not loggedin');
               alert('please login again');
               return;
