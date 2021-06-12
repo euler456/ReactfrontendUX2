@@ -39,7 +39,7 @@ function Displayfood() {
            return;
        }
     
-       if(headers.status == 200) {
+       if(headers.status == 201) {
         setloading({ loading: false});
         display();
            console.log('delete succussful');
