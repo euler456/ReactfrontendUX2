@@ -40,7 +40,7 @@ function Displayfood() {
        }
     
        if(headers.status == 201) {
-        setloading({ loading: false});
+    
         display();
            console.log('delete succussful');
            localStorage.setItem('reload','has been reload');   
