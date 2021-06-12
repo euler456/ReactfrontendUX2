@@ -180,12 +180,12 @@ class Login extends React.Component {
               return;
           }
             if(headers.status == 201) {
-              this.setState({ redirect: true });
+              
                 console.log('going to order');
                 alert('start order');
+                this.setState({ redirect: true });
                 return;
             }
-           
         })
         .catch(function(error) {console.log(error)});
        
