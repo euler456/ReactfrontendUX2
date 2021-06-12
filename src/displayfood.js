@@ -41,7 +41,7 @@ function Displayfood() {
        }
     
        if(headers.status == 201) {
-        display();
+        ()=>display();
            alert('delete succussful');
            localStorage.setItem('reload','has been reload');   
            localStorage.setItem('action','orderdelete');   
@@ -106,7 +106,7 @@ function Displayfood() {
             alert("add successful");
               console.log('addfood succussful');
               localStorage.setItem('action','add food');  
-           display();
+              ()=>  display();
         
           }
       })
