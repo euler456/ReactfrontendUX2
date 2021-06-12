@@ -116,16 +116,16 @@ function Displayfood() {
       }
     
     });
-    display();
+   
   fetch('https://ux2backend.herokuapp.com/api/api.php?action=displayorderfood',
   {
           method: 'POST',
           credentials: 'include'
       }
       )   .then(response => response.json())
-      .then(data => {
-        setHits(data);
-      });
+      .then(data => { setHits(data); } )
+      .then (() => display())
+      ;
     }, []);
     if (redirect) {return <Redirect to='/payment' /> };
     if (loading) {return <Loader />};
