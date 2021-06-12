@@ -141,6 +141,7 @@ class Login extends React.Component {
       
     }) .then((headers)=> {
       if(headers.status == 401) {
+        this.setState({  loading: false});
           console.log('login failed');
           localStorage.removeItem('csrf');
           localStorage.removeItem('username');
@@ -152,10 +153,12 @@ class Login extends React.Component {
           return;
       }
       if(headers.status == 203) {
+        this.setState({  loading: false});
           console.log('registration required');
           // only need csrf
       }
       if(headers.status == 200) {
+        this.setState({  loading: false});
         console.log('login successful');
         localStorage.setItem('action','login');   
         fetch('https://ux2backend.herokuapp.com/api/api.php?action=createorder', 
@@ -165,18 +168,20 @@ class Login extends React.Component {
         })
         .then(function(headers) {
             if(headers.status == 403) {
+              this.setState({ redirect: false });
                 console.log('can not order you are not loggedin');
                 alert('please login again');
                 return;
             }
             if(headers.status == 401) {
-
+              this.setState({ redirect: false });
               console.log('can not order you are not loggedin');
               alert('please login again');
               return;
           }
          
             if(headers.status == 201) {
+              this.setState({ redirect: true });
                 console.log('going to order');
                 alert('start order');
                 return;
@@ -184,7 +189,7 @@ class Login extends React.Component {
            
         })
         .catch(function(error) {console.log(error)});
-        this.setState({ redirect: true });
+       
         // only need csrf
     }
 
