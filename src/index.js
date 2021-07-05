@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import "./index.css";
 import Loader from "react-loader-spinner";
-
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Displayfood from '../src/displayfood'
+import Displayfood from '../src/displayfood';
+import NavBar from '../src/hamburger.js';
 //"homepage": "http:euler456.github.io/UX2",
 //import Redirect from 'react-router'
 //import { fetchlogin, fetchregister,fetchaccountexists ,fetchisloggedin,fetchlogout } from './api/app/app.js';
@@ -17,15 +17,27 @@ import {
   BrowserRouter,
   Router
 } from "react-router-dom";
+
 const green = '#006400';
 const black = '#000000';
 class Main extends React.Component {
+
   constructor(props){
     super(props);
-    this.state = { color: green };
+    this.state = { color: green,collapseID: '' };
     this.changeColor = this.changeColor.bind(this);
-    this.Logout = this.Logout.bind(this);
+  
   }
+
+  state = {
+    
+  };
+  toggleCollapse = collapseID => () => {
+    this.setState(prevState => ({
+      collapseID: prevState.collapseID !== collapseID ? collapseID : ''
+    }));
+  };
+
   changeColor(){
     const newColor = this.state.color == green ? black : green;
     this.setState({ color: newColor });
@@ -35,46 +47,20 @@ class Main extends React.Component {
     else{
       localStorage.setItem("Darkmode",'not Darkmode');
     };
-  
   }
-  
-  Logout=()=>{
-    fetch('https://ux2backend.herokuapp.com/api/api.php?action=logout', 
-    {
-        method: 'GET',
-        credentials: 'include'
-    })
-    .then((headers) =>{
-        if(headers.status != 200) {
-            console.log('logout failed Server-Side, but make client login again');
-        }
-        else{
-        localStorage.removeItem('csrf');
-        localStorage.removeItem('username');
-        localStorage.removeItem('email');
-        localStorage.removeItem('phone');
-        localStorage.removeItem('postcode');
-        localStorage.removeItem('CustomerID');  
-        localStorage.setItem("action",'logout');
-        alert("logout already");}
-        
-    })
-    .catch(function(error) {console.log(error)});
-  }
-  render() {
 
+  
+  render() {
     return (
       <div style={{background: this.state.color}}>
+       
       <HashRouter>
       <div class="container">
         <h1 >Freshly Login</h1>
+      
         <ul id="header" class="row">
-          <li><NavLink to="/" class="col"><i class="fas fa-sign-in-alt">login</i></NavLink></li>
-          <li><NavLink to="/Home" class="col ">Order</NavLink></li>
-          <li><NavLink to="/contact" class="col ">Contact</NavLink></li>
-          <li><NavLink to="/Setting" class="col ">Profile</NavLink></li>
-          <li><NavLink to="/" class="col" onClick={this.Logout}>Logout</NavLink></li>
-          <li class="col"> <button id="dark" class="btn btn-light" onClick={this.changeColor}><i class="fas fa-adjust"></i></button></li>
+        <NavBar></NavBar>
+          <li  class="col"> <button id="dark" class="btn btn-light" onClick={this.changeColor}><i class="fas fa-adjust"></i></button></li>
         </ul>
         <div id="content">
            <Route exact path="/" component={Login}/>
@@ -93,30 +79,9 @@ class Main extends React.Component {
 }
 
 class Home extends React.Component {
-  
-/*  constructor(props) {
-    super(props);
-    this.completeorder = this.completeorder.bind(this);
-    this.fetchorderdelete = this.fetchorderdelete.bind(this);
-    this.display = this.display.bind(this);
-    this.state = {
-      hits: [],
-      redirect: false,
-      loading:false,
-      order:[]
-    };
-  }*/
   render(){
-   // const { hits } = this.state; 
-   // const { order } = this.state; 
-   // const { redirect } = this.state;
-  //  const { loading } = this.state;
-   
-    
           return (
-        
        <Displayfood />
-      
           );
   }
 }
@@ -168,22 +133,18 @@ class Login extends React.Component {
         })
         .then(function(headers) {
             if(headers.status == 403) {
-       
                 console.log('can not order you are not loggedin');
                 alert('please login again');
                 return;
             }
             if(headers.status == 401) {
-      
               console.log('can not order you are not loggedin');
               alert('please login again');
               return;
           }
             if(headers.status == 201) {
-              
                 console.log('going to order');
                 alert('start order');
-             
                 return;
             }
         })
@@ -210,13 +171,11 @@ class Login extends React.Component {
       <div>
         <h2>Login</h2>
         <form  onSubmit={this.handleSubmit}>
-             
               <i class="fas fa-user">username</i>
               <input type="text" name="username" placeholder="user name" id="loginuser" onchange="getuserid()" maxlength="30" required></input>
               <i class="fas fa-key">password</i>
               <input type="password" name="password" placeholder="password" id="loginpass"  maxlength="30" required></input>
               <input type="submit" name="submit"></input>
-            
        </form>
         <button>
         <NavLink to="/Sign" id="Signup">Sign Up</NavLink>
@@ -236,8 +195,8 @@ class Sign extends React.Component {
       value: '',
       redirect: false
     };
-    
   }
+
   onChange(evt) {
     this.setState({
       value: evt.target.value.replace(/[^a-zA-Z]/g, '')
@@ -279,8 +238,7 @@ class Sign extends React.Component {
     return (
       <div>
          <h1>Sign Up</h1>
-         <form  onSubmit={this.handleSubmit}>
-          
+         <form  onSubmit={this.handleSubmit}>   
               <i class="fas fa-user">username</i>
              <input type="text" name="username" maxlength="30" onChange={this.onChange.bind(this)} value={this.state.value} id="regusername" required></input>
              <i class="far fa-envelope">email</i>
