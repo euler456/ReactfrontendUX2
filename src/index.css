@@ -4,6 +4,7 @@ td,th{
  padding: 5px;
  text-align: center;
  }
+
 input{
   margin-right: 90%;
   margin-bottom: 10px;
@@ -22,6 +23,10 @@ input{
    width: 100px;
    height: 100px;
    margin: 30px;
+ }
+ #logo{
+   width: 70%;
+   display: flex;
  }
 #Signup{
   
@@ -75,6 +80,7 @@ input{
   }
   #dark{
     width: 10%;
+    display: flex;
     margin-left: 93%;
     margin-top: 1%;
   }

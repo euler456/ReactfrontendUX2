@@ -56,11 +56,10 @@ class Main extends React.Component {
        
       <HashRouter>
       <div class="container">
-        <h1 >Freshly Login</h1>
-      
+        <h1 id="logo">Freshly Login</h1>
+        <button id="dark" class="btn btn-light" onClick={this.changeColor}><i class="fas fa-adjust"></i></button>
         <ul id="header" class="row">
         <NavBar></NavBar>
-          <li  class="col"> <button id="dark" class="btn btn-light" onClick={this.changeColor}><i class="fas fa-adjust"></i></button></li>
         </ul>
         <div id="content">
            <Route exact path="/" component={Login}/>
