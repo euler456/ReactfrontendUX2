@@ -115,17 +115,33 @@ function Displayfood() {
       }
     
     });
-   
-  fetch('https://ux2backend.herokuapp.com/api/api.php?action=displayorderfood',
-  {
-          method: 'POST',
-          credentials: 'include'
-      }
-      )   .then(response => response.json())
-      .then(data => { setHits(data); } )
-      .then (() => display())
-      ;
-    }, []);
+  
+    fetch('https://ux2backend.herokuapp.com/api/api.php?action=isloggedin',
+    {
+            method: 'POST',
+            credentials: 'include'
+        }
+        )   .then((headers)=> {
+          if(headers.status == 403) {
+              console.log('fail to display,plz login');
+              return;
+          }
+          if(headers.status == 203) {
+            fetch('https://ux2backend.herokuapp.com/api/api.php?action=displayorderfood',
+            {
+                    method: 'POST',
+                    credentials: 'include'
+                }
+                )   .then(response => response.json())
+                .then(data => { setHits(data); } )
+                .then (() => display())
+                ;
+              }
+            })
+      .catch((error)=> {console.log(error)});}
+      , []);
+
+ 
     if (redirect) {return <Redirect to='/payment' /> };
     if (loading) {return <Loader />};
   return (
