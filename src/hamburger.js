@@ -28,6 +28,7 @@ class NavBar extends Component {
                     color='white'
                     borderRadius={0}
                     animationDuration={0.5}
+                    marginleft={1000}
                 />
         )
     }

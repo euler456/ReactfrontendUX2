@@ -97,8 +97,8 @@ function Displayfood() {
           credentials: 'include'
       })
      .then((headers)=> {
-          if(headers.status == 400) {
-              console.log('fail to add');
+          if(headers.status == 403) {
+              console.log('fail to add,plz login');
               return;
           }
           if(headers.status == 201) {

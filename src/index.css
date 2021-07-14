@@ -39,7 +39,6 @@ input{
 }
  
  #header li {
-   
     list-style-type: none;
    
   }
@@ -93,10 +92,10 @@ input{
  }
  .hamburgerDropDown {
   position: fixed;
-  left: 40px;
+  left: 11%;
   top: 40px;
   width: 300px;
-  background-color: #8ef080;
+  background-color: #35bea1;
   border: 1px solid bisque;
 }
 
