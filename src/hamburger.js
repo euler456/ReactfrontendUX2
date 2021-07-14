@@ -23,12 +23,11 @@ class NavBar extends Component {
                     menuClicked={this.handleClick.bind(this)}
                     width={18}
                     height={15}
-                    strokeWidth={1}
                     rotate={0}
                     color='white'
                     borderRadius={0}
                     animationDuration={0.5}
-                    marginleft={1000}
+                   
                 />
         )
     }

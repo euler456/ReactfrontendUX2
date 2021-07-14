@@ -99,6 +99,7 @@ function Displayfood() {
      .then((headers)=> {
           if(headers.status == 403) {
               console.log('fail to add,plz login');
+              alert('fail to add,plz login');
               return;
           }
           if(headers.status == 201) {
