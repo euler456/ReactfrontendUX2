@@ -18,8 +18,8 @@ import {
   Router
 } from "react-router-dom";
 
-const green = '#59AA4C';
-const black = '#73774B';
+const green = '#778899';
+const black = '#008080';
 class Main extends React.Component {
 
   constructor(props){
@@ -70,7 +70,7 @@ class Main extends React.Component {
            <Route path="/payment" component={payment}/>
         </div>
         </div>
-        
+      
         </HashRouter>
         </div>
     );
