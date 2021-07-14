@@ -18,8 +18,8 @@ import {
   Router
 } from "react-router-dom";
 
-const green = '#006400';
-const black = '#000000';
+const green = '#59AA4C';
+const black = '#73774B';
 class Main extends React.Component {
 
   constructor(props){
@@ -244,11 +244,11 @@ class Sign extends React.Component {
               <input type="email" name="email"  id="regemail" maxlength="30"  required></input>
               <i class="fas fa-phone">phone</i>
               <input type="text" name="phone"  id="regphone" maxlength="11"  required></input>
-              <h4> postcode</h4>
+              <i class="fas fa-sort-numeric-down-alt">postcode</i>
               <input type="number" name="postcode"  id="regpostcode"maxlength="4"  required></input>
               <i class="fas fa-key">password</i>
               <input type="password" name="password" placeholder="password" id="regpassword" maxlength="30" required></input>
-              <h4> confirm password</h4>
+              <i class="fas fa-key">confirm password</i>
               <input type="password" name="password2" placeholder="password again" id="regpassword2" maxlength="30"  required></input>
               <input type="submit" name="submit"></input>
        </form>
@@ -318,11 +318,11 @@ class Setting extends React.Component {
               <input type="email" name="email"  id="upemail" maxlength="30"  required></input>
               <i class="fas fa-phone">phone</i>
               <input type="number" name="phone"  id="upphone" maxlength="11"  required></input>
-              <h4> postcode</h4>
+              <i class="fas fa-sort-numeric-down-alt">postcode</i>
               <input type="number" name="postcode"  id="uppostcode" maxlength="4"  required></input>
               <i class="fas fa-key">password</i>
               <input type="password" name="password" placeholder="password" id="uppassword" maxlength="30" required></input>
-              <h4>re-password</h4>
+              <i class="fas fa-key">re-password</i>
               <input type="password" name="password2" placeholder="password again" id="uppassword2" maxlength="30" required></input>
              
               <input type="submit" name="submit"></input>

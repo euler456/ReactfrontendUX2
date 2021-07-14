@@ -25,8 +25,12 @@ input{
    margin: 30px;
  }
  #logo{
-   width: 70%;
-   display: flex;
+  height: 50px;
+  display: inline-flex;
+   width: 50%;
+   margin: 0%;
+   padding: 0%;
+ flex-direction: column;
  }
 #Signup{
   
@@ -40,8 +44,8 @@ input{
    
   }
   #header {
-    background-color: #111;
-    padding: 0;
+    background-color: #8ef080;
+    height: 50px;
   }
   #header li a {
     color: #FFF;
@@ -79,10 +83,24 @@ input{
     color: black;
   }
   #dark{
-    width: 10%;
-    display: flex;
-    margin-left: 93%;
-    margin-top: 1%;
+    display: inline-flex;
+    margin: 0%;
+    margin-left: 30%;
+  flex-direction: column;
   }
- 
-  
+ .orderblock{
+   background-color: #59AA4C;
+ }
+ .hamburgerDropDown {
+  position: fixed;
+  left: 40px;
+  top: 40px;
+  width: 300px;
+  background-color: #8ef080;
+  border: 1px solid bisque;
+}
+
+ul.hamburgerDropDown {
+  padding: 10px;
+}
+

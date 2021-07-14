@@ -130,7 +130,7 @@ function Displayfood() {
     if (loading) {return <Loader />};
   return (
     <body>
-    <form>
+    <form class="orderblock">
     <table>
     <thead>
         <th>Name</th>
@@ -153,7 +153,7 @@ function Displayfood() {
     </tbody>
 </table>
 </form>
-  <form >
+  <form  class="orderblock">
   <h1>Your order</h1>
 <table>
    <thead>
