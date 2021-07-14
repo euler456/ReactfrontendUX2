@@ -163,7 +163,7 @@ class Login extends React.Component {
     const { loading } = this.state;
     // const { redirectToReferrer } = this.state;
      if (redirect) {
-       return <Redirect to='/Home'/>
+       return <Redirect to='/Login'/>
      }
      if (loading) {return <Loader />};
     return (
