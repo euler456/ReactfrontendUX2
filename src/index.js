@@ -105,7 +105,7 @@ class Login extends React.Component {
       
     }) .then((headers)=> {
       if(headers.status == 401) {
-    
+        this.setState({redirect: true})
           console.log('login failed');
           localStorage.removeItem('csrf');
           localStorage.removeItem('username');
