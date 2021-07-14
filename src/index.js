@@ -90,6 +90,7 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       redirect: false,
+      redirect2: false,
       loading:false,
     };
     
@@ -105,7 +106,7 @@ class Login extends React.Component {
       
     }) .then((headers)=> {
       if(headers.status == 401) {
-        this.setState({redirect: true})
+        this.setState({redirect2: true})
           console.log('login failed');
           localStorage.removeItem('csrf');
           localStorage.removeItem('username');
@@ -160,11 +161,15 @@ class Login extends React.Component {
   }
   render() {
     const { redirect } = this.state;
+    const { redirect2 } = this.state;
     const { loading } = this.state;
     // const { redirectToReferrer } = this.state;
      if (redirect) {
-       return <Redirect to='/Login'/>
+       return <Redirect to='/Home'/>
      }
+     if (redirect2) {
+      return <Redirect to='/Login'/>
+    }
      if (loading) {return <Loader />};
     return (
       <div>
