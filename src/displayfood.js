@@ -146,7 +146,6 @@ function Displayfood() {
     <td ><img src={require(`./images/${hit.image}.jpg`).default}></img></td>
     <td class='price'>{hit.price}</td>
     <td><input type="number" class="fd-value" name="quantity" min="0" max="50"></input></td>
-    <td>{hit.options}</td>
     <td><input type="submit" name="submit" class="btnSelect" ></input></td>
      </tr>
           ) )}
