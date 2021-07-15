@@ -91,9 +91,8 @@ class Login extends React.Component {
     this.state = {
       redirect: false,
       redirect2: false,
-      loading:false,
+      loading:false
     };
-    
   }
   handleSubmit(event) {
     this.setState({  loading: true})
@@ -248,7 +247,7 @@ class Sign extends React.Component {
              <i class="far fa-envelope">email</i>
               <input type="email" name="email"  id="regemail" maxlength="30"  required></input>
               <i class="fas fa-phone">phone</i>
-              <input type="text" name="phone"  id="regphone" maxlength="11"  required></input>
+              <input type="number" name="phone"  id="regphone" maxlength="11"  required></input>
               <i class="fas fa-sort-numeric-down-alt">postcode</i>
               <input type="number" name="postcode"  id="regpostcode"maxlength="4"  required></input>
               <i class="fas fa-key">password</i>
