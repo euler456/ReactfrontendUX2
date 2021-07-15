@@ -1,22 +1,22 @@
 {
-    "short_name": "Freshly",
-    "name": "Freshly",
+  "short_name": "React App",
+  "name": "Create React App Sample",
     "icons": [
         {
-          "src": "../pic/frelogo.png",
+          "src": "./pic/frelogo.png",
           "type": "image/png",
           "sizes": "144x144",
           "purpose": "any maskable"
         },
         {
-          "src": "../pic/text847.png",
+          "src": "./pic/text847.png",
           "type": "image/png",
           "sizes": "512x512",
           "purpose": "maskable"
         }
       ],
       "theme_color": "#3367D6",
-    "start_url": "/?source=pwa",
+    "start_url": "../public/index.html",
     "background_color": "#3367D6",
     "display": "standalone",
     "scope": "/"

@@ -73,16 +73,6 @@ function Displayfood() {
     .catch(function(error) {console.log(error)});
      }
   
-    function changeColor(){
-      const newColor = this.state.color == green ? black : green;
-      this.setState({ color: newColor });
-      if(this.state.color == green ){
-        localStorage.setItem("Darkmode",' Darkmode');
-      }
-      else{
-        localStorage.setItem("Darkmode",'not Darkmode');
-      };
-    }
  
   useEffect(() => {
     $("#orderform").on('click', '.btnSelect', function() {

@@ -14,9 +14,13 @@ crossorigin="anonymous">
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.6.3/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.6.3/umd/react-dom.production.min.js"></script>
+<script type="text/javascript" src="../service-worker.js"></script>
 <script>
   if('serviceWorker' in navigator){
     console.log("Will service worker register?");
+    navigator.serviceWorker.register('../service-worker.js').then(function(registration) {
+  console.log('ServiceWorker registration successful with scope: ', registration.active);
+});
     navigator.serviceWorker.register('../service-worker.js').then(function(reg){
 console.log("Yes it did");}).catch(function(err){
 console.log("No it did not This happened: ",err)
