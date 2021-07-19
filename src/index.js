@@ -245,7 +245,7 @@ class Sign extends React.Component {
               <i class="fas fa-user">username</i>
              <input type="text" name="username" maxlength="30" onChange={this.onChange.bind(this)} value={this.state.value} id="regusername" required></input>
              <i class="far fa-envelope">email</i>
-              <input type="email" name="email"  id="regemail" maxlength="30"  required></input>
+              <input type="email" name="email"  id="regemail" maxlength="30" required></input>
               <i class="fas fa-phone">phone</i>
               <input type="number" name="phone"  id="regphone" maxlength="11"  required></input>
               <i class="fas fa-sort-numeric-down-alt">postcode</i>

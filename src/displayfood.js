@@ -76,6 +76,7 @@ function Displayfood() {
  
   useEffect(() => {
     $("#orderform").on('click', '.btnSelect', function() {
+      setloading({ loading: true});
       var currentRow = $(this).closest("tr");
       var col1 = currentRow.find(".fd-value").val(); 
       var col2 = currentRow.find(".fd-id").html(); 
