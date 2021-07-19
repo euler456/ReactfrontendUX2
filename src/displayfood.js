@@ -143,12 +143,13 @@ function Displayfood() {
                 ;
               }
             })
-      .catch((error)=> {console.log(error)});}
+      .catch((error)=> {console.log(error)});
+    }
       , []);
 
  
     if (redirect) {return <Redirect to='/payment' /> };
-    if (redirect2) {return <Redirect to='/' /> };
+    if (redirect2) {return <Redirect to='/Home' /> };
     if (loading) {return <Loader />};
   return (
     <body>
