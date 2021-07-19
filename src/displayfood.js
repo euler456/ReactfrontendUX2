@@ -101,13 +101,13 @@ function Displayfood() {
           if(headers.status == 403) {
         
               console.log('fail to add,plz login');
-              setredirect2({ redirect2: false});
+              setredirect2({ redirect2: true});
               alert('fail to add,plz login');
               return;
           }
           if(headers.status == 201) {
             alert("add successful");
-            setredirect2({ redirect2: false});
+            setredirect2({ redirect2: true});
               console.log('addfood succussful');
               localStorage.setItem('action','add food');  
              display();
