@@ -148,7 +148,7 @@ function Displayfood() {
 
  
     if (redirect) {return <Redirect to='/payment' /> };
-    if (redirect2) {return <Redirect to='/Home' /> };
+    if (redirect2) {return <Redirect to='/' /> };
     if (loading) {return <Loader />};
   return (
     <body>
