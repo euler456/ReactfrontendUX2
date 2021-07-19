@@ -98,11 +98,13 @@ function Displayfood() {
       })
      .then((headers)=> {
           if(headers.status == 403) {
+            setloading({ loading: false});
               console.log('fail to add,plz login');
               alert('fail to add,plz login');
               return;
           }
           if(headers.status == 201) {
+            setloading({ loading: false});
             alert("add successful");
               console.log('addfood succussful');
               localStorage.setItem('action','add food');  
