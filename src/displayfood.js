@@ -10,6 +10,7 @@ function Displayfood() {
   const [hits, setHits] = useState([]);
   const [order, setorder] = useState([]);
   const [redirect, setredirect] = useState(false);
+  const [redirect2, setredirect2] = useState(false);
   const [loading, setloading] = useState(false);
   function display(){
     fetch('https://ux2backend.herokuapp.com/api/api.php?action=showorderform',
@@ -98,14 +99,15 @@ function Displayfood() {
       })
      .then((headers)=> {
           if(headers.status == 403) {
-            setloading({ loading: false});
+        
               console.log('fail to add,plz login');
+              setredirect2({ redirect2: false});
               alert('fail to add,plz login');
               return;
           }
           if(headers.status == 201) {
-            setloading({ loading: false});
             alert("add successful");
+            setredirect2({ redirect2: false});
               console.log('addfood succussful');
               localStorage.setItem('action','add food');  
              display();
@@ -146,6 +148,7 @@ function Displayfood() {
 
  
     if (redirect) {return <Redirect to='/payment' /> };
+    if (redirect2) {return <Redirect to='/Home' /> };
     if (loading) {return <Loader />};
   return (
     <body>
