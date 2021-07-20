@@ -107,8 +107,9 @@ function Displayfood() {
           }
           if(headers.status == 201) {
             alert("add successful");
-            setloading({ loading: false});
+          
               console.log('addfood succussful');
+              setloading({ loading: false});
               localStorage.setItem('action','add food');  
              display();
         
@@ -149,8 +150,7 @@ function Displayfood() {
 
     if (redirect) {return <Redirect to='/payment' /> };
    
-    if (loading) {return <Loader />}
-    else{
+    if (!loading){
   return (
     <body>
     <form class="orderblock">
@@ -201,6 +201,9 @@ function Displayfood() {
         <NavLink to="/Help" id="Help">Help</NavLink>
 </button>
 </body>
-  )};
+  )}
+  else
+    {return <Loader />}
+  ;
 }
 export default Displayfood;
