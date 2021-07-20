@@ -11,7 +11,6 @@ function Displayfood() {
   const [hits, setHits] = useState([]);
   const [order, setorder] = useState([]);
   const [redirect, setredirect] = useState(false);
-  const [redirect2, setredirect2] = useState(false);
   const [loading, setloading] = useState(false);
   function display(){
     fetch('https://ux2backend.herokuapp.com/api/api.php?action=showorderform',
@@ -102,13 +101,13 @@ function Displayfood() {
           if(headers.status == 403) {
         
               console.log('fail to add,plz login');
-              setredirect2({ redirect2: true});
+              setloading({ loading: false});
               alert('fail to add,plz login');
               return;
           }
           if(headers.status == 201) {
             alert("add successful");
-            setredirect2({ redirect2: true});
+            setloading({ loading: false});
               console.log('addfood succussful');
               localStorage.setItem('action','add food');  
              display();
@@ -149,9 +148,10 @@ function Displayfood() {
       , []);
 
       if (redirect2) {return <Redirect to='/Home' /> };
-   // if (redirect) {return <Redirect to='/payment' /> };
+    if (redirect) {return <Redirect to='/payment' /> };
    
-    if (loading) {return <Loader />};
+    if (loading) {return <Loader />}
+    else{
   return (
     <body>
     <form class="orderblock">
@@ -202,6 +202,6 @@ function Displayfood() {
         <NavLink to="/Help" id="Help">Help</NavLink>
 </button>
 </body>
-  );
+  )};
 }
 export default Displayfood;
