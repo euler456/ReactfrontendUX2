@@ -68,6 +68,7 @@ class Main extends React.Component {
            <Route path="/contact" component={Contact}/>
            <Route path="/Setting" component={Setting}/>
            <Route path="/payment" component={payment}/>
+           <Route path="/Help" component={Help}/>
         </div>
         </div>
       
@@ -182,6 +183,9 @@ class Login extends React.Component {
        </form>
         <button>
         <NavLink to="/Sign" id="Signup">Sign Up</NavLink>
+       </button>
+       <button>
+        <NavLink to="/Help" id="Help">Help</NavLink>
        </button>
       </div>
 
@@ -451,6 +455,16 @@ class Contact extends React.Component {
         <p>e-mail:xxxx@gmial.com</p>
         <p>Phone Number: xxx-xxx-xxx</p>
         <p>Address: 10 shhh street Brisbane,QLD</p>
+      </div>
+    );
+  }
+}
+class Help extends React.Component {
+  render() {
+    return (
+      <div>
+        <p>The website is for the Freshly resturant, the user can login ,register ,and order the food through the button on the page</p>
+        <p>After login, user can start their order in the home page. The home page include add/delete/select food functions.</p>
       </div>
     );
   }

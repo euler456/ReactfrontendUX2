@@ -4,6 +4,7 @@ import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import $, { extend } from 'jquery';
 import {
+  NavLink,
   Redirect 
 } from "react-router-dom";
 function Displayfood() {
@@ -197,6 +198,9 @@ function Displayfood() {
 </table>
 <input type="submit"  name="submit" value="Complete order" onClick={() => completeorder()}></input>
 </form>
+<button>
+        <NavLink to="/Help" id="Help">Help</NavLink>
+</button>
 </body>
   );
 }
