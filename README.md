@@ -13,6 +13,7 @@ Fifth,cd the file ,and npm start and copy the website url put in that special Ch
 
 # elevator pitch
 This is a food ordering app which include the user register ,member login, customer ordering ,payment ,and food information.
+# CRUD template
 
 <img width="414" alt="Screenshot 2021-07-20 133945" src="https://user-images.githubusercontent.com/47268086/126258394-9b9b012c-24e4-4f69-8e75-0363df9b8295.png">
 
