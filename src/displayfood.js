@@ -90,7 +90,6 @@ function Displayfood() {
       fd.append('price', col4 );
       fd.append('quantity', col1 );
       fd.append('totalprice', col5 );
-      setloading(false);
       fetch('https://ux2backend.herokuapp.com/api/api.php?action=orderquantity', 
       {
           method: 'POST',
