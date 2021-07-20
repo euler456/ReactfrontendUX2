@@ -201,8 +201,8 @@ function Displayfood() {
         <NavLink to="/Help" id="Help">Help</NavLink>
 </button>
 </body>
-  )};
- if(!loading)
+  )}
+ else
     {return <Loader />}
   ;
 }
