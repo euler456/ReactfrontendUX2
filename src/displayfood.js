@@ -37,11 +37,13 @@ function Displayfood() {
    })
    .then(function(headers) {
        if(headers.status == 400) {
+        setloading(true);
            console.log('can not delete');
            return;
        }
     
        if(headers.status == 201) {
+        setloading(true);
             display();
            alert('delete succussful');
            localStorage.setItem('reload','has been reload');   
