@@ -52,7 +52,7 @@ function Displayfood() {
    .catch(function(error) {console.log(error)});
      }
    function completeorder(){
-   setloading({ loading: false});
+   setloading(false);
     fetch('https://ux2backend.herokuapp.com/api/api.php?action=sumtotalprice', 
     {
         method: 'GET',
@@ -77,7 +77,7 @@ function Displayfood() {
  
   useEffect(() => {
     $("#orderform").on('click', '.btnSelect', function() {
-      setloading({ loading: false});
+      setloading(false);
       var currentRow = $(this).closest("tr");
       var col1 = currentRow.find(".fd-value").val(); 
       var col2 = currentRow.find(".fd-id").html(); 
@@ -101,7 +101,7 @@ function Displayfood() {
           if(headers.status == 403) {
         
               console.log('fail to add,plz login');
-              setloading({ loading: true});
+              setloading(true);
               alert('fail to add,plz login');
               return;
           }
@@ -109,7 +109,7 @@ function Displayfood() {
             alert("add successful");
           
               console.log('addfood succussful');
-              setloading({ loading: true});
+              setloading(true);
               localStorage.setItem('action','add food');  
              display();
         
