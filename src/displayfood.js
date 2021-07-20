@@ -11,7 +11,7 @@ function Displayfood() {
   const [hits, setHits] = useState([]);
   const [order, setorder] = useState([]);
   const [redirect, setredirect] = useState(false);
-  const [loading, setloading] = useState(false);
+  const [loading, setloading] = useState(true);
   function display(){
     fetch('https://ux2backend.herokuapp.com/api/api.php?action=showorderform',
         {
@@ -52,7 +52,7 @@ function Displayfood() {
    .catch(function(error) {console.log(error)});
      }
    function completeorder(){
-   setloading({ loading: true});
+   setloading({ loading: false});
     fetch('https://ux2backend.herokuapp.com/api/api.php?action=sumtotalprice', 
     {
         method: 'GET',
@@ -77,7 +77,7 @@ function Displayfood() {
  
   useEffect(() => {
     $("#orderform").on('click', '.btnSelect', function() {
-      setloading({ loading: true});
+      setloading({ loading: false});
       var currentRow = $(this).closest("tr");
       var col1 = currentRow.find(".fd-value").val(); 
       var col2 = currentRow.find(".fd-id").html(); 
@@ -101,7 +101,7 @@ function Displayfood() {
           if(headers.status == 403) {
         
               console.log('fail to add,plz login');
-              setloading({ loading: false});
+              setloading({ loading: true});
               alert('fail to add,plz login');
               return;
           }
@@ -109,7 +109,7 @@ function Displayfood() {
             alert("add successful");
           
               console.log('addfood succussful');
-              setloading({ loading: false});
+              setloading({ loading: true});
               localStorage.setItem('action','add food');  
              display();
         
@@ -150,7 +150,7 @@ function Displayfood() {
 
     if (redirect) {return <Redirect to='/payment' /> };
    
-    if (!loading){
+    if (loading){
   return (
     <body>
     <form class="orderblock">
@@ -201,8 +201,8 @@ function Displayfood() {
         <NavLink to="/Help" id="Help">Help</NavLink>
 </button>
 </body>
-  )}
-  else
+  )};
+ if(!loading)
     {return <Loader />}
   ;
 }
