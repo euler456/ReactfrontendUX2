@@ -168,7 +168,7 @@ class Login extends React.Component {
        return <Redirect to='/Home'/>
      }
      if (redirect2) {
-      return <Redirect to='/Login'/>
+      return <Redirect to='/'/>
     }
      if (loading) {return <Loader />};
     return (
