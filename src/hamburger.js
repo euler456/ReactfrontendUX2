@@ -57,7 +57,7 @@ class NavBar extends Component {
       return (
           <ul className='hamburgerDropDown'>
         
-                  <li className='nav-link'><NavLink to='/' >login</NavLink></li>
+                  <li className='nav-link'><i class="fa fa-user"> </i><NavLink to='/' >login</NavLink></li>
                   <li className='nav-link'><NavLink to='/Home'>Home</NavLink></li>
                   <li className='nav-link'><NavLink to='/contact'>contact</NavLink></li>
                   <li className='nav-link'><NavLink to='/Setting'>Setting</NavLink></li>

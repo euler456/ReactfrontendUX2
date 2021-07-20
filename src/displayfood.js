@@ -50,6 +50,7 @@ function Displayfood() {
        }
    })
    .catch(function(error) {console.log(error)});
+   setloading(false);
      }
    function completeorder(){
    setloading(false);
