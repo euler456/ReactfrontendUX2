@@ -117,7 +117,9 @@ function Displayfood() {
         
           }
       })
-      .catch((error)=> {console.log(error)});}
+      .catch((error)=> {console.log(error)});
+      setloading(false);
+    }
       else{
           alert("please select value");
       }
