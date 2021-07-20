@@ -147,7 +147,6 @@ function Displayfood() {
     }
       , []);
 
-      if (redirect2) {return <Redirect to='/Home' /> };
     if (redirect) {return <Redirect to='/payment' /> };
    
     if (loading) {return <Loader />}
