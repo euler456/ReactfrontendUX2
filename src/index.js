@@ -175,10 +175,14 @@ class Login extends React.Component {
       <div>
         <h2>Login</h2>
         <form  onSubmit={this.handleSubmit}>
-              <i class="fas fa-user">username</i>
-              <input type="text" name="username" placeholder="user name" id="loginuser" onchange="getuserid()" maxlength="30" required></input>
-              <i class="fas fa-key">password</i>
-              <input type="password" name="password" placeholder="password" id="loginpass"  maxlength="30" required></input>
+        <div class="inputContainer">
+<i class="fa fa-user icon"> </i>
+<input class="Field" type="text" name="username" placeholder="user name" id="loginuser" onchange="getuserid()" maxlength="30" required></input>
+</div>
+<div class="inputContainer">
+<i class="fa fa-key icon"> </i>
+<input class="Field" type="password" name="password" placeholder="password" id="loginpass"  maxlength="30" required></input>
+</div>
               <input type="submit" name="submit"></input>
        </form>
         <button>
