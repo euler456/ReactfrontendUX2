@@ -12,7 +12,7 @@ Fourth,open the special Chrome in this command
 Fifth,cd the file ,and npm start and copy the website url put in that special Chrome
 
 # elevator pitch
-This is a food ordering app.
+This is a food ordering app which include the user register ,member login, customer ordering ,payment ,and food information.
 
 # Getting Started with Create React App
 
