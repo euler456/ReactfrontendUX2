@@ -200,7 +200,7 @@ class Login extends React.Component {
 <Field   style = {{width:'100%',
   padding: '5px' , textAlign: 'center', fontSize: '20px',fontWeight: '500'}}  name="username" id="loginuser" placeholder="user name"  type="text" className={'form-control' + (errors.username && touched.username ? ' is-invalid' : '')} ></Field>
               <ErrorMessage name="username" component="div" className="invalid-feedback" />
-</div> 
+              </div> 
           </div>
           <div className="form-group">
           <div class="inputContainer">
@@ -208,9 +208,7 @@ class Login extends React.Component {
 <Field style = {{width:'100%',
   padding: '5px' , textAlign: 'center', fontSize: '20px',fontWeight: '500'}}  placeholder="password" name="password" id="loginpass"  type="password"  className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
               <ErrorMessage name="password" component="div" className="invalid-feedback" />
-</div>
-            
-             
+</div> 
           </div>
           <div className="form-group">
           <Button type="submit" variant="contained" color="primary"
@@ -281,35 +279,89 @@ class Sign extends React.Component {
     return (
       <div>
          <h1>Sign Up</h1>
-         <form  onSubmit={this.handleSubmit}>  
-         <div class="inputContainer">
+         <Formik
+      initialValues={{
+        username: '',
+        email: '',
+        phone:'',
+        postcode:'',
+        password:'',
+        password2:'',
+    }}
+      validationSchema={Yup.object().shape({
+        username: Yup.string()
+        .matches(/^[A-Za-z ]*$/, 'Please enter valid name')
+        .max(40)
+        .required('username is required'),
+        email: Yup.string()
+        .required('email is required'),
+        phone: Yup.string()
+        .required('phone is required'),
+        postcode: Yup.string()
+        .required('postcode is required'),
+        password: Yup.string()
+        .required('password is required'),
+        password2: Yup.string()
+        .required('confirm password is required')
+  })}
+  render={({ errors, touched }) => (
+      <Form onSubmit={this.handleSubmit}>
+          <div className="form-group">
+          <div class="inputContainer">
 <i class="fa fa-user icon"> </i>
-<input class="Field" type="text" placeholder="user name" name="username" maxlength="30" onChange={this.onChange.bind(this)} value={this.state.value} id="regusername" required></input>
-</div>
-<div class="inputContainer">
+<Field   style = {{width:'100%',
+  padding: '5px' , textAlign: 'center', fontSize: '20px',fontWeight: '500'}}  name="username" id="regusername" placeholder="user name"  type="text" className={'form-control' + (errors.username && touched.username ? ' is-invalid' : '')} ></Field>
+              <ErrorMessage name="username" component="div" className="invalid-feedback" />
+              </div> 
+          </div>
+          <div className="form-group">
+          <div class="inputContainer">
 <i class="far fa-envelope icon"> </i>
-<input class="Field" type="email" placeholder="email" name="email"  id="regemail" maxlength="30" required></input>
-</div>
-<div class="inputContainer">
+<Field style = {{width:'100%',padding: '5px' , textAlign: 'center', fontSize: '20px',fontWeight: '500'}}  placeholder="email" name="email" id="regemail"  type="email"  className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
+              <ErrorMessage name="email" component="div" className="invalid-feedback" />
+</div> 
+          </div>
+          <div className="form-group">
+          <div class="inputContainer">
 <i class="fas fa-phone icon"> </i>
-<input class="Field" type="number" placeholder="phone" name="phone"  id="regphone" maxlength="11"  required></input>
-</div>
-<div class="inputContainer">
+<Field style = {{width:'100%',
+  padding: '5px' , textAlign: 'center', fontSize: '20px',fontWeight: '500'}}  placeholder="phone" name="phone" id="regphone"  type="number"  className={'form-control' + (errors.phone && touched.phone ? ' is-invalid' : '')} />
+              <ErrorMessage name="phone" component="div" className="invalid-feedback" />
+</div> 
+          </div>
+          <div className="form-group">
+          <div class="inputContainer">
 <i class="fas fa-sort-numeric-down-alt icon"> </i>
-<input class="Field" type="number" placeholder="postcode" name="postcode"  id="regpostcode"maxlength="4"  required></input>
+<Field style = {{width:'100%',
+  padding: '5px' , textAlign: 'center', fontSize: '20px',fontWeight: '500'}}  placeholder="postcode" name="postcode" id="regpostcode"  type="number"  className={'form-control' + (errors.postcode && touched.postcode ? ' is-invalid' : '')} />
+              <ErrorMessage name="postcode" component="div" className="invalid-feedback" />
 </div> 
-<div class="inputContainer">
-<i class="fas fa-key icon"> </i>
-<input class="Field" type="password" placeholder="password" name="password" id="regpassword" maxlength="30" required></input>
-</div>
-<div class="inputContainer">
-<i class="fas fa-key icon"> </i>
-<input class="Field" type="password" placeholder="password2" name="password2" id="regpassword2" maxlength="30"  required></input>
+          </div>
+          <div className="form-group">
+          <div class="inputContainer">
+<i class="fa fa-key icon"> </i>
+<Field style = {{width:'100%',
+  padding: '5px' , textAlign: 'center', fontSize: '20px',fontWeight: '500'}}  placeholder="password" name="password" id="regpassword"  type="password"  className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
+              <ErrorMessage name="password" component="div" className="invalid-feedback" />
 </div> 
+          </div>
+          <div className="form-group">
+          <div class="inputContainer">
+<i class="fa fa-key icon"> </i>
+<Field style = {{width:'100%',
+  padding: '5px' , textAlign: 'center', fontSize: '20px',fontWeight: '500'}}  placeholder="password" name="password" id="regpassword2"  type="password"  className={'form-control' + (errors.password2 && touched.password2 ? ' is-invalid' : '')} />
+              <ErrorMessage name="password" component="div" className="invalid-feedback" />
+</div> 
+          </div>
+ <div className="form-group">
+          <Button type="submit" variant="contained" color="primary"
+        style={{ marginTop: 10,marginRight: 10,display: 'inline-block' }}>Signup</Button>
+          </div>
+      </Form>
+  )}
+/>
+        
             
-            
-              <input type="submit" name="submit"></input>
-       </form>
       </div>
     );
   }
