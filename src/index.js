@@ -349,8 +349,8 @@ class Sign extends React.Component {
           <div class="inputContainer">
 <i class="fa fa-key icon"> </i>
 <Field style = {{width:'100%',
-  padding: '5px' , textAlign: 'center', fontSize: '20px',fontWeight: '500'}}  placeholder="password" name="password" id="regpassword2"  type="password"  className={'form-control' + (errors.password2 && touched.password2 ? ' is-invalid' : '')} />
-              <ErrorMessage name="password" component="div" className="invalid-feedback" />
+  padding: '5px' , textAlign: 'center', fontSize: '20px',fontWeight: '500'}}  placeholder="password" name="password2" id="regpassword2"  type="password"  className={'form-control' + (errors.password2 && touched.password2 ? ' is-invalid' : '')} />
+              <ErrorMessage name="password2" component="div" className="invalid-feedback" />
 </div> 
           </div>
  <div className="form-group">
