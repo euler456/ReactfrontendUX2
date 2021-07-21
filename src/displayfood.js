@@ -101,7 +101,6 @@ function Displayfood() {
       })
      .then((headers)=> {
           if(headers.status == 403) {
-        
               console.log('fail to add,plz login');
               setloading(true);
               alert('fail to add,plz login');
@@ -109,21 +108,18 @@ function Displayfood() {
           }
           if(headers.status == 201) {
             alert("add successful");
-          
               console.log('addfood succussful');
               setloading(true);
               localStorage.setItem('action','add food');  
              display();
-        
           }
       })
       .catch((error)=> {console.log(error)});
-      setloading(false);
     }
       else{
           alert("please select value");
       }
-    
+      setloading(false);
     });
   
     fetch('https://ux2backend.herokuapp.com/api/api.php?action=isloggedin',
