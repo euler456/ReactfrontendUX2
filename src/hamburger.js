@@ -57,11 +57,11 @@ class NavBar extends Component {
       return (
           <ul className='hamburgerDropDown'>
         
-                  <li className='nav-link'><i class="fa fa-user"> </i><NavLink to='/' >login</NavLink></li>
-                  <li className='nav-link'><NavLink to='/Home'>Home</NavLink></li>
-                  <li className='nav-link'><NavLink to='/contact'>contact</NavLink></li>
-                  <li className='nav-link'><NavLink to='/Setting'>Setting</NavLink></li>
-                  <li className='nav-link'><NavLink to='/'  onClick={this.Logout}>Logout</NavLink></li>
+                  <li className='nav-link'><i class="fas fa-sign-in-alt"> </i><NavLink to='/' >login</NavLink></li>
+                  <li className='nav-link'><i class="fas fa-home"></i><NavLink to='/Home'>Home</NavLink></li>
+                  <li className='nav-link'><i class="fas fa-phone-volume"></i><NavLink to='/contact'>contact</NavLink></li>
+                  <li className='nav-link'><i class="fas fa-cog"></i><NavLink to='/Setting'>Setting</NavLink></li>
+                  <li className='nav-link'><i class="fas fa-sign-out-alt"></i><NavLink to='/'  onClick={this.Logout}>Logout</NavLink></li>
               </ul>
       )
   }

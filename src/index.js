@@ -249,19 +249,33 @@ class Sign extends React.Component {
     return (
       <div>
          <h1>Sign Up</h1>
-         <form  onSubmit={this.handleSubmit}>   
-              <i class="fas fa-user">username</i>
-             <input type="text" name="username" maxlength="30" onChange={this.onChange.bind(this)} value={this.state.value} id="regusername" required></input>
-             <i class="far fa-envelope">email</i>
-              <input type="email" name="email"  id="regemail" maxlength="30" required></input>
-              <i class="fas fa-phone">phone</i>
-              <input type="number" name="phone"  id="regphone" maxlength="11"  required></input>
-              <i class="fas fa-sort-numeric-down-alt">postcode</i>
-              <input type="number" name="postcode"  id="regpostcode"maxlength="4"  required></input>
-              <i class="fas fa-key">password</i>
-              <input type="password" name="password" placeholder="password" id="regpassword" maxlength="30" required></input>
-              <i class="fas fa-key">confirm password</i>
-              <input type="password" name="password2" placeholder="password again" id="regpassword2" maxlength="30"  required></input>
+         <form  onSubmit={this.handleSubmit}>  
+         <div class="inputContainer">
+<i class="fa fa-user icon"> </i>
+<input class="Field" type="text" placeholder="user name" name="username" maxlength="30" onChange={this.onChange.bind(this)} value={this.state.value} id="regusername" required></input>
+</div>
+<div class="inputContainer">
+<i class="far fa-envelope icon"> </i>
+<input class="Field" type="email" placeholder="email" name="email"  id="regemail" maxlength="30" required></input>
+</div>
+<div class="inputContainer">
+<i class="fas fa-phone icon"> </i>
+<input class="Field" type="number" placeholder="phone" name="phone"  id="regphone" maxlength="11"  required></input>
+</div>
+<div class="inputContainer">
+<i class="fas fa-sort-numeric-down-alt icon"> </i>
+<input class="Field" type="number" placeholder="postcode" name="postcode"  id="regpostcode"maxlength="4"  required></input>
+</div> 
+<div class="inputContainer">
+<i class="fas fa-key icon"> </i>
+<input class="Field" type="password" placeholder="password" name="password" id="regpassword" maxlength="30" required></input>
+</div>
+<div class="inputContainer">
+<i class="fas fa-key icon"> </i>
+<input class="Field" type="password" placeholder="password2" name="password2" id="regpassword2" maxlength="30"  required></input>
+</div> 
+            
+            
               <input type="submit" name="submit"></input>
        </form>
       </div>
@@ -323,19 +337,31 @@ class Setting extends React.Component {
          <div>
       </div>
       <form onSubmit={this.handleSubmit}>
-              <input type="hidden" name="currentusername"  id="currentusername" required hidden></input>
-              <i class="fas fa-user">username</i>
-              <input type="text" name="username"  id="upusername" maxlength="30" onChange={this.onChange.bind(this)} value={this.state.value} required></input>
-              <i class="far fa-envelope">email</i>
-              <input type="email" name="email"  id="upemail" maxlength="30"  required></input>
-              <i class="fas fa-phone">phone</i>
-              <input type="number" name="phone"  id="upphone" maxlength="11"  required></input>
-              <i class="fas fa-sort-numeric-down-alt">postcode</i>
-              <input type="number" name="postcode"  id="uppostcode" maxlength="4"  required></input>
-              <i class="fas fa-key">password</i>
-              <input type="password" name="password" placeholder="password" id="uppassword" maxlength="30" required></input>
-              <i class="fas fa-key">re-password</i>
-              <input type="password" name="password2" placeholder="password again" id="uppassword2" maxlength="30" required></input>
+      <input type="hidden" name="currentusername"  id="currentusername" required hidden></input>
+      <div class="inputContainer">
+<i class="fa fa-user icon"> </i>
+<input type="text"  class="Field" name="username"  id="upusername" maxlength="30" onChange={this.onChange.bind(this)} value={this.state.value} required></input>
+</div>
+<div class="inputContainer">
+<i class="far fa-envelope icon"> </i>
+<input type="email"  class="Field" name="email"  id="upemail" maxlength="30"  required></input>
+</div>
+<div class="inputContainer">
+<i class="fas fa-phone icon"> </i>
+<input type="number"  class="Field" name="phone"  id="upphone" maxlength="11"  required></input>
+</div>
+<div class="inputContainer">
+<i class="fas fa-sort-numeric-down-alt icon"> </i>
+<input type="number"  class="Field" name="postcode"  id="uppostcode" maxlength="4"  required></input>
+</div>
+<div class="inputContainer">
+<i class="fas fa-key icon"> </i>
+<input type="password"  class="Field" name="password" placeholder="password" id="uppassword" maxlength="30" required></input>
+</div>
+<div class="inputContainer">
+<i class="fas fa-key icon"> </i>
+<input type="password"  class="Field" name="password2" placeholder="password again" id="uppassword2" maxlength="30" required></input>
+</div>
              
               <input type="submit" name="submit"></input>
        </form>
