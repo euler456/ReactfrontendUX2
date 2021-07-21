@@ -340,19 +340,19 @@ class Setting extends React.Component {
       <input type="hidden" name="currentusername"  id="currentusername" required hidden></input>
       <div class="inputContainer">
 <i class="fa fa-user icon"> </i>
-<input type="text"  class="Field" name="username"  id="upusername" maxlength="30" onChange={this.onChange.bind(this)} value={this.state.value} required></input>
+<input type="text"  class="Field" name="username" placeholder="username" id="upusername" maxlength="30" onChange={this.onChange.bind(this)} value={this.state.value} required></input>
 </div>
 <div class="inputContainer">
 <i class="far fa-envelope icon"> </i>
-<input type="email"  class="Field" name="email"  id="upemail" maxlength="30"  required></input>
+<input type="email"  class="Field" name="email"  placeholder="email" id="upemail" maxlength="30"  required></input>
 </div>
 <div class="inputContainer">
 <i class="fas fa-phone icon"> </i>
-<input type="number"  class="Field" name="phone"  id="upphone" maxlength="11"  required></input>
+<input type="number"  class="Field" name="phone"  placeholder="phone" id="upphone" maxlength="11"  required></input>
 </div>
 <div class="inputContainer">
 <i class="fas fa-sort-numeric-down-alt icon"> </i>
-<input type="number"  class="Field" name="postcode"  id="uppostcode" maxlength="4"  required></input>
+<input type="number"  class="Field" name="postcode" placeholder="postcode"  id="uppostcode" maxlength="4"  required></input>
 </div>
 <div class="inputContainer">
 <i class="fas fa-key icon"> </i>
