@@ -1,10 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
 import "./index.css";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Displayfood from '../src/displayfood';
 import NavBar from '../src/hamburger.js';
+import { Formik, Field,  ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import Button from '@material-ui/core/Button';
+import {   Form } from "react-bootstrap";
 //"homepage": "http:euler456.github.io/UX2",
 //import Redirect from 'react-router'
 //import { fetchlogin, fetchregister,fetchaccountexists ,fetchisloggedin,fetchlogout } from './api/app/app.js';
@@ -174,23 +179,50 @@ class Login extends React.Component {
     return (
       <div>
         <h2>Login</h2>
-        <form  onSubmit={this.handleSubmit}>
-        <div class="inputContainer">
+        <Formik
+      initialValues={{
+        username: '',
+        password: ''
+    }}
+      validationSchema={Yup.object().shape({
+        username: Yup.string()
+        .matches(/^[A-Za-z ]*$/, 'Please enter valid name')
+        .max(40)
+        .required('username is required'),
+          password: Yup.string()
+          .required('Password is required')
+  })}
+  render={({ errors, touched }) => (
+      <Form onSubmit={this.handleSubmit}>
+          <div className="form-group">
+          <div class="inputContainer">
 <i class="fa fa-user icon"> </i>
-<input class="Field" type="text" name="username" placeholder="user name" id="loginuser" onchange="getuserid()" maxlength="30" required></input>
-</div>
-<div class="inputContainer">
+<Field   style = {{width:'100%',
+  padding: '5px' , textAlign: 'center', fontSize: '20px',fontWeight: '500'}}  name="username" id="loginuser" placeholder="user name"  type="text" className={'form-control' + (errors.username && touched.username ? ' is-invalid' : '')} ></Field>
+              <ErrorMessage name="username" component="div" className="invalid-feedback" />
+</div> 
+          </div>
+          <div className="form-group">
+          <div class="inputContainer">
 <i class="fa fa-key icon"> </i>
-<input class="Field" type="password" name="password" placeholder="password" id="loginpass"  maxlength="30" required></input>
+<Field style = {{width:'100%',
+  padding: '5px' , textAlign: 'center', fontSize: '20px',fontWeight: '500'}}  placeholder="password" name="password" id="loginpass"  type="password"  className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
+              <ErrorMessage name="password" component="div" className="invalid-feedback" />
 </div>
-              <input type="submit" name="submit"></input>
-       </form>
-        <button>
-        <NavLink to="/Sign" id="Signup">Sign Up</NavLink>
-       </button>
-       <button>
-        <NavLink to="/Help" id="Help">Help</NavLink>
-       </button>
+            
+             
+          </div>
+          <div className="form-group">
+          <Button type="submit" variant="contained" color="primary"
+        style={{ marginTop: 10,marginRight: 10,display: 'inline-block' }}>login</Button>
+            <Button type="submit" variant="contained" color="primary"
+        style={{ marginTop: 10,display: 'inline-block' }}>
+        <NavLink to="/Sign" id="Signup">Sign Up</NavLink> </Button>
+          </div>
+      </Form>
+  )}
+/>
+       
       </div>
 
     );
