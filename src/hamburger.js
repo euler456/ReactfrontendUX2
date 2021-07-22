@@ -24,6 +24,7 @@ class NavBar extends Component {
                     width={18}
                     height={15}
                     rotate={0}
+                    zIndex={3}
                     color='white'
                     borderRadius={0}
                     animationDuration={0.5}
@@ -62,6 +63,7 @@ class NavBar extends Component {
                   <li className='nav-link'><i class="fas fa-phone-volume"></i><NavLink to='/contact'>contact</NavLink></li>
                   <li className='nav-link'><i class="fas fa-cog"></i><NavLink to='/Setting'>Setting</NavLink></li>
                   <li className='nav-link'><i class="fas fa-sign-out-alt"></i><NavLink to='/'  onClick={this.Logout}>Logout</NavLink></li>
+                  <li className='nav-link'><i class="fas fa-question-circle"></i><NavLink to='/Help'>Help</NavLink></li>
               </ul>
       )
   }

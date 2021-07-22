@@ -39,10 +39,12 @@ input{
 }
  
  #header li {
+   margin: 0%;
     list-style-type: none;
    
   }
   #header {
+    margin: 0%;
     background-color: #80cbee;
     height: 50px;
   }
@@ -91,8 +93,9 @@ input{
    background-color:#778899;
  }
  .hamburgerDropDown {
+  z-index:1;
   position: fixed;
-  left: 11%;
+  left: 20%;
   top: 40px;
   width: 300px;
   background-color: #80cbee;
@@ -100,6 +103,7 @@ input{
 }
 
 ul.hamburgerDropDown {
+  z-index:1;
   padding: 10px;
 }
 
