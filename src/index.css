@@ -16,8 +16,10 @@ input{
     color: chocolate;
  }
  p{
-   color: #FFF;
+   color: rgba(240, 221, 221, 0.938);
    border: 1px;
+   font-size: 20px;
+   margin: 10px;
  }
  img{
    width: 100px;

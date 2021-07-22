@@ -27,8 +27,8 @@ import {
   Router
 } from "react-router-dom";
 
-const green = '#778899';
-const black = '#008080';
+const green = '#008080';
+const black = '#778899';
 class Main extends React.Component {
 
   constructor(props){
@@ -629,11 +629,13 @@ class Help extends React.Component {
     return (
       <div>
      
-        <p>The website is for the Freshly resturant, the user can login ,register ,and order the food through the button on the page</p>
+        <p>The website is for the Freshly resturant ordering system,user can through this website to order the food</p>
+        <p>The user can change the page by clicking the hamburger menu on the left top ,and use the buttons to register and Login in the login page.</p>
         <img class="helppic" src={navbar} />
-<p>After login, user can start their order in the home page. The home page include add/delete/select food functions.</p>
+        <img class="helppic" src={button} />
+        <p>After login, user can start their order in the home page. The home page include add/delete/select food functions.</p>
 <img class="helppic" src={orderpic} />
-<img class="helppic" src={button} />
+<p>After order finished, user needs to complete payment form downbelow.</p>
 <img class="helppic" src={paymentpic} />
 
       </div>
