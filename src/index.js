@@ -259,14 +259,12 @@ class Sign extends React.Component {
           alert("username exists");
           return;
       }
-   
       if(headers.status == 201) {
           console.log('registration updated');
           localStorage.setItem('action','resister new account');   
           this.setState({ redirect: true });
           return;
       }
-     
   })
   .catch(function(error) {console.log(error)});
   }
@@ -360,8 +358,6 @@ class Sign extends React.Component {
       </Form>
   )}
 />
-        
-            
       </div>
     );
   }
@@ -418,37 +414,88 @@ class Setting extends React.Component {
     return (
       <div >
          <h1>Edit My profile</h1>
-         <div>
-      </div>
-      <form onSubmit={this.handleSubmit}>
-      <input type="hidden" name="currentusername"  id="currentusername" required hidden></input>
-      <div class="inputContainer">
+
+         <Formik
+      initialValues={{
+        username: '',
+        email: '',
+        phone:'',
+        postcode:'',
+        password:'',
+        password2:'',
+    }}
+      validationSchema={Yup.object().shape({
+        username: Yup.string()
+        .matches(/^[A-Za-z ]*$/, 'Please enter valid name')
+        .max(40)
+        .required('username is required'),
+        email: Yup.string()
+        .required('email is required'),
+        phone: Yup.string()
+        .required('phone is required'),
+        postcode: Yup.string()
+        .required('postcode is required'),
+        password: Yup.string()
+        .required('password is required'),
+        password2: Yup.string()
+        .required('confirm password is required')
+  })}
+  render={({ errors, touched }) => (
+      <Form onSubmit={this.handleSubmit}>
+          <div className="form-group">
+          <div class="inputContainer">
 <i class="fa fa-user icon"> </i>
-<input type="text"  class="Field" name="username" placeholder="username" id="upusername" maxlength="30" onChange={this.onChange.bind(this)} value={this.state.value} required></input>
-</div>
-<div class="inputContainer">
+<Field   style = {{width:'100%',
+  padding: '5px' , textAlign: 'center', fontSize: '20px',fontWeight: '500'}}  name="username" id="upusername" placeholder="user name"  type="text" className={'form-control' + (errors.username && touched.username ? ' is-invalid' : '')} ></Field>
+              <ErrorMessage name="username" component="div" className="invalid-feedback" />
+              </div> 
+          </div>
+          <div className="form-group">
+          <div class="inputContainer">
 <i class="far fa-envelope icon"> </i>
-<input type="email"  class="Field" name="email"  placeholder="email" id="upemail" maxlength="30"  required></input>
-</div>
-<div class="inputContainer">
+<Field style = {{width:'100%',padding: '5px' , textAlign: 'center', fontSize: '20px',fontWeight: '500'}}  placeholder="email" name="email" id="upemail"  type="email"  className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
+              <ErrorMessage name="email" component="div" className="invalid-feedback" />
+</div> 
+          </div>
+          <div className="form-group">
+          <div class="inputContainer">
 <i class="fas fa-phone icon"> </i>
-<input type="number"  class="Field" name="phone"  placeholder="phone" id="upphone" maxlength="11"  required></input>
-</div>
-<div class="inputContainer">
+<Field style = {{width:'100%',
+  padding: '5px' , textAlign: 'center', fontSize: '20px',fontWeight: '500'}}  placeholder="phone" name="phone" id="upphone"  type="number"  className={'form-control' + (errors.phone && touched.phone ? ' is-invalid' : '')} />
+              <ErrorMessage name="phone" component="div" className="invalid-feedback" />
+</div> 
+          </div>
+          <div className="form-group">
+          <div class="inputContainer">
 <i class="fas fa-sort-numeric-down-alt icon"> </i>
-<input type="number"  class="Field" name="postcode" placeholder="postcode"  id="uppostcode" maxlength="4"  required></input>
-</div>
-<div class="inputContainer">
-<i class="fas fa-key icon"> </i>
-<input type="password"  class="Field" name="password" placeholder="password" id="uppassword" maxlength="30" required></input>
-</div>
-<div class="inputContainer">
-<i class="fas fa-key icon"> </i>
-<input type="password"  class="Field" name="password2" placeholder="password again" id="uppassword2" maxlength="30" required></input>
-</div>
-             
-              <input type="submit" name="submit"></input>
-       </form>
+<Field style = {{width:'100%',
+  padding: '5px' , textAlign: 'center', fontSize: '20px',fontWeight: '500'}}  placeholder="postcode" name="postcode" id="uppostcode"  type="number"  className={'form-control' + (errors.postcode && touched.postcode ? ' is-invalid' : '')} />
+              <ErrorMessage name="postcode" component="div" className="invalid-feedback" />
+</div> 
+          </div>
+          <div className="form-group">
+          <div class="inputContainer">
+<i class="fa fa-key icon"> </i>
+<Field style = {{width:'100%',
+  padding: '5px' , textAlign: 'center', fontSize: '20px',fontWeight: '500'}}  placeholder="password" name="password" id="uppassword"  type="password"  className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
+              <ErrorMessage name="password" component="div" className="invalid-feedback" />
+</div> 
+          </div>
+          <div className="form-group">
+          <div class="inputContainer">
+<i class="fa fa-key icon"> </i>
+<Field style = {{width:'100%',
+  padding: '5px' , textAlign: 'center', fontSize: '20px',fontWeight: '500'}}  placeholder="password" name="password2" id="uppassword2"  type="password"  className={'form-control' + (errors.password2 && touched.password2 ? ' is-invalid' : '')} />
+              <ErrorMessage name="password2" component="div" className="invalid-feedback" />
+</div> 
+          </div>
+ <div className="form-group">
+          <Button type="submit" variant="contained" color="primary"
+        style={{ marginTop: 10,marginRight: 10,display: 'inline-block' }}>Signup</Button>
+          </div>
+      </Form>
+  )}
+/>
       </div>
     );
   }
