@@ -10,6 +10,10 @@ import { Formik, Field,  ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Button from '@material-ui/core/Button';
 import {   Form } from "react-bootstrap";
+import navbar from './images/navbar.jpg'; 
+import orderpic from './images/orderpic.png'; 
+import button from './images/button.png'; 
+import paymentpic from './images/payment.png'; 
 //"homepage": "http:euler456.github.io/UX2",
 //import Redirect from 'react-router'
 //import { fetchlogin, fetchregister,fetchaccountexists ,fetchisloggedin,fetchlogout } from './api/app/app.js';
@@ -624,8 +628,14 @@ class Help extends React.Component {
   render() {
     return (
       <div>
+     
         <p>The website is for the Freshly resturant, the user can login ,register ,and order the food through the button on the page</p>
-        <p>After login, user can start their order in the home page. The home page include add/delete/select food functions.</p>
+        <img class="helppic" src={navbar} />
+<p>After login, user can start their order in the home page. The home page include add/delete/select food functions.</p>
+<img class="helppic" src={orderpic} />
+<img class="helppic" src={button} />
+<img class="helppic" src={paymentpic} />
+
       </div>
     );
   }
