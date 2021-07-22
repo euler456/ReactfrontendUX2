@@ -197,9 +197,7 @@ function Displayfood() {
 </table>
 <input type="submit"  name="submit" value="Complete order" onClick={() => completeorder()}></input>
 </form>
-<button>
-        <NavLink to="/Help" id="Help">Help</NavLink>
-</button>
+
 </body>
   )}
  else
