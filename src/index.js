@@ -296,10 +296,13 @@ class Sign extends React.Component {
         .max(40)
         .required('username is required'),
         email: Yup.string()
+        .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/, 'Please enter valid email')
         .required('email is required'),
         phone: Yup.string()
+        .max(10)
         .required('phone is required'),
         postcode: Yup.string()
+        .max(4)
         .required('postcode is required'),
         password: Yup.string()
         .required('password is required'),
@@ -434,10 +437,13 @@ class Setting extends React.Component {
         .max(40)
         .required('username is required'),
         email: Yup.string()
+        .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/, 'Please enter valid email')
         .required('email is required'),
         phone: Yup.string()
+        .max(10)
         .required('phone is required'),
         postcode: Yup.string()
+        .max(4)
         .required('postcode is required'),
         password: Yup.string()
         .required('password is required'),
