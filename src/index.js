@@ -123,7 +123,7 @@ class Login extends React.Component {
           localStorage.removeItem('email');
           localStorage.removeItem('postcode');
           localStorage.removeItem('CustomerID');
-          alert('Can not login')
+    
           return;
       }
       if(headers.status == 203) {
@@ -143,17 +143,19 @@ class Login extends React.Component {
         .then(function(headers) {
             if(headers.status == 403) {
                 console.log('can not order you are not loggedin');
-                alert('please login again');
+
+                this.setState({redirect2: true})
                 return;
             }
             if(headers.status == 401) {
               console.log('can not order you are not loggedin');
-              alert('please login again');
+              this.setState({redirect2: true})
+
               return;
           }
             if(headers.status == 201) {
                 console.log('going to order');
-                alert('start order');
+        
                 return;
             }
         })
@@ -555,7 +557,7 @@ class payment extends React.Component {
         if(headers.status == 201) {
           console.log('check out successful');
           this.setState({ redirect: true });
-          alert("Check out successful")
+         
             return;
         }
     })
