@@ -140,7 +140,7 @@ class Login extends React.Component {
             method: 'POST',
             credentials: 'include'
         })
-        .then(function(headers) {
+        .then(headers=> {
             if(headers.status == 403) {
                 console.log('can not order you are not loggedin');
                 this.setState({redirect2: true})
