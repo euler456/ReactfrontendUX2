@@ -46,11 +46,7 @@ input{
     list-style-type: none;
    
   }
-  #header {
-    margin: 0%;
-    background-color: #80cbee;
-    height: 50px;
-  }
+
   #header li a {
     color: #FFF;
     font-weight: bold;
@@ -71,9 +67,7 @@ input{
     background-color:black;
     color: white;
   }
-  .body{
-    background-color: #80cbee;
-  }
+  
 
   .blackBg {
     background-color: black;
@@ -105,10 +99,6 @@ input{
   border: 1px solid bisque;
 }
 
-ul.hamburgerDropDown {
-  z-index:1;
-  padding: 10px;
-}
 
 .inputContainer i {
   position: absolute;
@@ -156,4 +146,24 @@ ul.hamburgerDropDown {
   text-shadow: 0 1px 0 rgba(255,255,255,.7);
   filter: alpha(opacity=40);
   opacity: .4;
+}
+
+
+.navbar{
+ width: 100%;
+ text-align: center;
+ margin: 0%;
+
+}
+ul{
+  padding: 0%;
+}
+.navbar-toggle{
+  margin-left: 90%;
+}
+.navbar a{
+  padding: 5px;
+  size: 20px;
+  color: black;
+  font-weight: bold;
 }

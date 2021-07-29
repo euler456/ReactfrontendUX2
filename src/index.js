@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Alert from '@material-ui/lab/Alert';
 import "./index.css";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Displayfood from '../src/displayfood';
-import NavBar from '../src/hamburger.js';
+import App from '../src/hammenu.js';
 import { Formik, Field,  ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import $, { extend } from 'jquery';
@@ -69,7 +68,7 @@ class Main extends React.Component {
         <h1 id="logo">Freshly Login</h1>
         <button id="dark" class="btn btn-light" onClick={this.changeColor}><i class="fas fa-adjust"></i></button>
         <ul id="header" class="row">
-        <NavBar></NavBar>
+        <App></App>
         </ul>
         <div id="content">
            <Route exact path="/" component={Login}/>
