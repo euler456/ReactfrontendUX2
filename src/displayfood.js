@@ -11,6 +11,7 @@ function Displayfood() {
   const [hits, setHits] = useState([]);
   const [order, setorder] = useState([]);
   const [redirect, setredirect] = useState(false);
+  const [redirect2, setredirect2] = useState(false);
   const [loading, setloading] = useState(true);
   function display(){
     fetch('https://ux2backend.herokuapp.com/api/api.php?action=showorderform',
@@ -130,6 +131,7 @@ function Displayfood() {
         )   .then((headers)=> {
           if(headers.status == 403) {
               console.log('fail to display,plz login');
+              setredirect2({ redirect2: true });
               return;
           }
           if(headers.status == 203) {
@@ -149,7 +151,7 @@ function Displayfood() {
       , []);
 
     if (redirect) {return <Redirect to='/payment' /> };
-   
+   if(redirect2){ return <Redirect to='/' />};
     if (loading){
   return (
     <body>
