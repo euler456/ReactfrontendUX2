@@ -161,7 +161,7 @@ function Displayfood() {
     <form class="orderblock">
     <div class="alert alert-success" role="alert">
   <button type="button" class="close-alert">×</button>
-  Finish order
+  Now can start the order!
 </div>      
     <table>
     <thead>
