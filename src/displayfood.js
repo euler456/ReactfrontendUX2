@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
+import Alert from '@material-ui/lab/Alert';
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import $, { extend } from 'jquery';
@@ -153,6 +153,7 @@ function Displayfood() {
     if (loading){
   return (
     <body>
+       <Alert>Already Login,Can start to order</Alert>
     <form class="orderblock">
     <table>
     <thead>
