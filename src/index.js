@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
+import Alert from '@material-ui/lab/Alert';
 import "./index.css";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
@@ -8,6 +8,7 @@ import Displayfood from '../src/displayfood';
 import NavBar from '../src/hamburger.js';
 import { Formik, Field,  ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import $, { extend } from 'jquery';
 import Button from '@material-ui/core/Button';
 import {   Form } from "react-bootstrap";
 import navbar from './images/navbar.jpg'; 
@@ -578,6 +579,10 @@ class payment extends React.Component {
 
   }
   componentDidMount(){
+    $(".close-alert").click(function(e){
+      $(this).parent().remove();
+      e.preventDefault();
+    });
     fetch('https://ux2backend.herokuapp.com/api/api.php?action=confirmorderform',
     {
             method: 'GET',
@@ -599,6 +604,14 @@ class payment extends React.Component {
     }
     return (
       <div>
+        <div  >
+        <div class="alert alert-success" role="alert">
+  <button type="button" class="close-alert">×</button>
+  Finish order
+</div>      
+</div>
+         
+         
       <table>
       <thead>
           <th>Ordernumber</th>

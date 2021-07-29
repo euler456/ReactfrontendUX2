@@ -21,6 +21,7 @@ input{
    font-size: 20px;
    margin: 10px;
  }
+ 
  img{
    width: 100px;
    height: 100px;
@@ -134,3 +135,25 @@ ul.hamburgerDropDown {
   height: 50%;
 }
 
+
+.alert {
+  min-width: 150px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+.close-alert{
+  -webkit-appearance: none;
+  position: relative;
+  float: right;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  color: inherit;
+  background: 0 0;
+  font-size: 21px;
+  line-height: 1;
+  font-weight: bold;
+  text-shadow: 0 1px 0 rgba(255,255,255,.7);
+  filter: alpha(opacity=40);
+  opacity: .4;
+}

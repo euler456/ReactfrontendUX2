@@ -79,6 +79,10 @@ function Displayfood() {
   
  
   useEffect(() => {
+    $(".close-alert").click(function(e){
+      $(this).parent().remove();
+      e.preventDefault();
+    });
     $("#orderform").on('click', '.btnSelect', function() {
       var currentRow = $(this).closest("tr");
       var col1 = currentRow.find(".fd-value").val(); 
@@ -153,8 +157,12 @@ function Displayfood() {
     if (loading){
   return (
     <body>
-       <Alert>Already Login,Can start to order</Alert>
+      
     <form class="orderblock">
+    <div class="alert alert-success" role="alert">
+  <button type="button" class="close-alert">×</button>
+  Finish order
+</div>      
     <table>
     <thead>
         <th>Name</th>
