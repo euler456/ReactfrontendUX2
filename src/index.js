@@ -519,7 +519,8 @@ class payment extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       confirmdata: [],
-      redirect: false
+      redirect: false,
+      redirect2: false
     };
   }
   handleSubmit(event){
@@ -561,6 +562,19 @@ class payment extends React.Component {
         }
     })
     .catch(function(error) {console.log(error)});
+    fetch('https://ux2backend.herokuapp.com/api/api.php?action=isloggedin',
+    {
+            method: 'POST',
+            credentials: 'include'
+        }
+        )   .then((headers)=> {
+          if(headers.status == 403) {
+              console.log('fail to display,plz login');
+              this.setState({ redirect2: true });
+              return;
+          }
+            })
+      .catch((error)=> {console.log(error)});
 
   }
   componentDidMount(){
@@ -575,10 +589,14 @@ class payment extends React.Component {
   render() {
     const { confirmdata } = this.state; 
     const { redirect } = this.state;
+    const { redirect2 } = this.state;
     // const { redirectToReferrer } = this.state;
      if (redirect) {
        return <Redirect to='/Home' />
      }
+     if (redirect2) {
+      return <Redirect to='/' />
+    }
     return (
       <div>
       <table>
