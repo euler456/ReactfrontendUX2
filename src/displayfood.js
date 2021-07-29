@@ -46,7 +46,6 @@ function Displayfood() {
        if(headers.status == 201) {
         setloading(true);
             display();
-           alert('delete succussful');
            localStorage.setItem('reload','has been reload');   
            localStorage.setItem('action','orderdelete');   
            return;
@@ -104,11 +103,10 @@ function Displayfood() {
           if(headers.status == 403) {
               console.log('fail to add,plz login');
               setloading(true);
-              alert('fail to add,plz login');
               return;
           }
           if(headers.status == 201) {
-            alert("add successful");
+            
               console.log('addfood succussful');
               setloading(true);
               localStorage.setItem('action','add food');  
